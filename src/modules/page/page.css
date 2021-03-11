@@ -1,0 +1,182 @@
+.page {
+  height: 1600px;
+}
+
+.page__close {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 75px;
+  right: 25px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.page__close-icon {
+  width: 11px;
+}
+
+.page__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.page__image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.page__image {
+  width: 100%;
+  padding-top: 50px;
+  margin-bottom: -20px;
+}
+
+.page__data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  background-color: #F7F7F7;
+}
+
+.page__player {
+  width: 100%;
+  height: 427.5px;
+}
+
+.page__location {
+  width: 80%;
+  margin: 30px 0 0;
+  font-family: "Odnoklassniki";
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.page__years {
+  width: 80%;
+  margin: 0 0 20px;
+  font-family: "Odnoklassniki";
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.page__text {
+  width: 80%;
+  font-family: "Odnoklassniki";
+  font-size: 14px;
+  line-height: 18px;
+  color: #666666;
+}
+.page__comment {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 40px 0;
+  width: 80%;
+}
+
+.page__comment-photo {
+  width: 120px;
+  height: 120px;
+  background-color: #C4C4C4;
+  border-radius: 50%;
+}
+
+.page__comment-container {
+  width: 420px;
+  padding-left: 50px;
+  background-color: white;
+  clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%, 5% 80px, 0% 60px, 5% 40px)
+}
+
+.page__comment-author {
+  padding: 15px 0 5px;
+  font-size: 16px;
+  line-height: 18px;
+  font-family: "Odnoklassniki";
+}
+
+.page__comment-comment {
+  padding-bottom: 10px;
+  font-size: 11px;
+  line-height: 14px;
+  font-family: "Odnoklassniki";
+  color: #373A89;
+}
+
+.page__comment-text {
+  padding-bottom: 15px;
+  width: 95%;
+  font-size: 11px;
+  line-height: 14px;
+  font-family: "Odnoklassniki";
+  color: #666666;
+}
+
+.btttn {
+  width: 40px;
+  height: 40px;
+  background-color: orange;
+}
+
+.btttn2 {
+  width: 40px;
+  height: 40px;
+  background-color: #777;
+}
+
+.page__navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px 0 60px;
+  width: 90%;
+  height: 90px;
+}
+
+.page__link {
+  width: 48%;
+}
+
+.page__navigation-next {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  background-color: white;
+}
+
+.page__navigation-prev {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  background-color: white;
+}
+
+.page__navigation-title {
+  font-size: 12px;
+  line-height: 18px;
+  font-family: "Odnoklassniki";
+}
+
+.page__navigation-location {
+  font-size: 12px;
+  line-height: 18px;
+  font-family: "Odnoklassniki";
+  color: #666666;
+}
