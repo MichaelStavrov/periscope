@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './page.css';
+import './page-mobile.css';
 import HeaderPage from '../header-page/header-page';
 import Button from '../button/button';
 import Slider from '../slider/slider';
@@ -71,14 +72,14 @@ function Page(props) {
         </div>
         <div className='page__data-container'>
           <div className='page__player'>
-            <iframe width='100%' height="427.5px" src="https://www.youtube.com/embed/WEGJ6_bLr74" frameBorder="0">
+            <iframe className='page__player-frame' src="https://www.youtube.com/embed/WEGJ6_bLr74" frameBorder="0">
             </iframe>
           </div>
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }}></div>
           <div className='page__text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
           <div className='page__comment'>
-            <img className='page__comment-photo' />
+            <img className='page__comment-photo' src='./images/photo/person.png' />
             <div className='page__comment-container'>
               <div className='page__comment-author' dangerouslySetInnerHTML={{ __html: page.comment.author }} style={{ color: page.color }}/>
               <div className='page__comment-comment'>Комментарий эксперта</div>

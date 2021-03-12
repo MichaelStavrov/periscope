@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './header.css';
+import './header-mobile.css';
 import Menu from '../menu/menu';
 
 function Header() {

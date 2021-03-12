@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './header-page.css';
+import './header-page-mobile.css';
 import Menu from '../menu/menu';
 
 function HeaderPage({ openPage }) {

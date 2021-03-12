@@ -1,0 +1,21 @@
+@media (max-width: 700px) {
+
+  .header__logos {
+    width: 250px;
+  }
+
+  .header__logos-attention {
+    width: 70px;
+  }
+
+  .header__logos-ok {
+    width: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .header__logos {
+    width: 210px;
+  }
+}
