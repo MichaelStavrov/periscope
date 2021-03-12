@@ -5,13 +5,22 @@
     font-size: 12px;
   }
 
+  .main__button {
+    width: 100px;
+    height: 100px;
+    bottom: -50px;
+  }
+
   .main__button-outer {
-    display: none;
+    width: 100px;
+    height: 100px;
   }
 
   .main__button-inner {
     width: 80px;
     height: 80px;
+    max-width: 100px;
+    max-height: 100px;
   }
 
   .main__button-arrow {

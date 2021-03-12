@@ -41,6 +41,7 @@
 
   .page__navigation {
     flex-direction: column;
+    height: 170px;
   }
 
   .page__link {
