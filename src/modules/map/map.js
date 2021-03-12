@@ -26,7 +26,7 @@ function Map() {
         />
         { pages.map((page, index) => {
           return (
-            <Marker position={page.coordinates} icon={L.icon({ iconUrl: './images/global/marker.svg', iconSize: [22, 28], })}>
+            <Marker position={page.coordinates} icon={L.icon({ iconUrl: './images/global/marker.svg', iconSize: [79, 102], })}>
               <Popup>
                 A pretty CSS3 popup. <br /> Easily customizable.
               </Popup>
