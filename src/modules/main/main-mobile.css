@@ -1,0 +1,37 @@
+@media (max-width: 700px) {
+
+  .main__text {
+    width: 90%;
+    font-size: 12px;
+  }
+
+  .main__button {
+    width: 100px;
+    height: 100px;
+    bottom: -50px;
+  }
+
+  .main__button-outer {
+    width: 100px;
+    height: 100px;
+  }
+
+  .main__button-inner {
+    width: 80px;
+    height: 80px;
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .main__button-arrow {
+    width: 18px;
+  }
+
+  .main__button-text {
+    font-size: 13px;
+  }
+
+  .main__map {
+    height: 400px;
+  }
+}

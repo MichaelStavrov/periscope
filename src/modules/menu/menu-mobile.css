@@ -1,0 +1,46 @@
+@media (max-width: 1000px) {
+
+  .menu__text {
+    max-width: 95%;
+    margin: 50px 0 40px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .menu__pages {
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 250px;
+    margin: 40px 0 60px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .menu__text {
+    margin: 50px 0 20px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .menu__buttons {
+    flex-direction: column;
+    width: 95%;
+    height: 120px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu__pages {
+    width: 95%;
+    height: 220px;
+    margin: 20px 0 0;
+    align-content: flex-start;
+  }
+
+  .menu__page {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+  }
+}
