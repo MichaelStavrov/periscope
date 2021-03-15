@@ -63,7 +63,7 @@ function Page(props) {
       </Link>
       <div className='page__container'>
         <div className='page__image-container'>
-          <img className='page__image' src={`./images/pages/${page && page.image}.svg`} alt='sight' />
+          <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
           <Button text='Помочь фонду' color={page && page.color} link='#' />
         </div>
         <div className='page__data-container'>
