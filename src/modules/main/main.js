@@ -23,7 +23,7 @@ function Main() {
       onMouseLeave={() => handleButton()}>
         <div className='main__button-outer' />
         <div className='main__button-inner' style={ button === 'expanded' ? { width: '150px', height: '150px' } : null }>
-          <img className='main__button-arrow' src='./images/global/arrow.svg' />
+          <img className='main__button-arrow' src='./images/global/arrow.svg' alt='arrow' />
           <div className='main__button-text'>смотреть</div>
         </div>
       </div>

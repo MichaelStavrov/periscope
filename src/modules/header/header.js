@@ -33,8 +33,8 @@ function Header() {
         <div className='header__menu-button-line' />
       </div>
       <div className='header__logos'>
-        <img className='header__logos-attention' src='./images/global/attention.svg'/>
-        <img className='header__logos-ok' src='./images/global/ok.svg'/>
+        <img className='header__logos-attention' src='./images/global/attention.svg' alt='logo'/>
+        <img className='header__logos-ok' src='./images/global/ok.svg' alt='logo'/>
       </div>
     </div>
   )

@@ -27,10 +27,10 @@ function Slider({ slides }) {
 
   return (
     <div className='slider'>
-      <img className='slider__image' src={`./images/slider/${slides[currentImageIndex - 1]}`} />
+      <img className='slider__image' src={`./images/slider/${slides[currentImageIndex - 1]}`} alt='slide'/>
       <div className='slider__buttons'>
-        <img className='slider__button-left' src='./images/global/left.svg' data-direction="prev" onClick={switchSlide} />
-        <img className='slider__button-right' src='./images/global/right.svg' data-direction="next" onClick={switchSlide} />
+        <img className='slider__button-left' src='./images/global/left.svg' data-direction="prev" onClick={switchSlide} alt='left-button' />
+        <img className='slider__button-right' src='./images/global/right.svg' data-direction="next" onClick={switchSlide} alt='right-button' />
       </div>
     </div>
   )

@@ -13,7 +13,7 @@ function Menu({ display, hideMenu, openPage }) {
   }
   return (
     <div className='menu' style={ display === 'visible' ? { display: 'flex' } : { display: 'none' } }>
-      <img className='menu__close' src='./images/global/close.svg' onClick={() => hideMenu()} />
+      <img className='menu__close' src='./images/global/close.svg' onClick={() => hideMenu()} alt='menu' />
       <div className='menu__text'>{global.text}</div>
       <div className='menu__buttons'>
         <Button text='Помочь фонду' color='#7D8083' link='#' />
@@ -30,7 +30,7 @@ function Menu({ display, hideMenu, openPage }) {
           })
         }
       </div>
-      <img className='menu__logos' src={'./images/global/menu-logos.svg'} />
+      <img className='menu__logos' src={'./images/global/menu-logos.svg'} alt='logo' />
     </div>
   )
 }

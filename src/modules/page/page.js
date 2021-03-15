@@ -50,35 +50,31 @@ function Page(props) {
 
   useEffect(() => {
     setPage(pages[pageId.currentPageId - 1])
-  }, [pageId])
-
-  setTimeout(() => {
-    console.log(pageId)
-  }, 100);
+  }, [pageId, pages])
 
   return (
     <div className='page'>
       <HeaderPage openPage={openPage} />
       <Link to='/'>
         <div className='page__close' style={{ backgroundColor: page.color }}>
-          <img className='page__close-icon' src='./images/global/close-small.svg' />
+          <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
         </div>
       </Link>
       <div className='page__container'>
         <div className='page__image-container'>
-          <img className='page__image' src={`./images/pages/${page && page.image}.svg`} />
+          <img className='page__image' src={`./images/pages/${page && page.image}.svg`} alt='sight' />
           <Button text='Помочь фонду' color={page && page.color} link='#' />
         </div>
         <div className='page__data-container'>
           <div className='page__player'>
-            <iframe width='100%' height="427.5px" src="https://www.youtube.com/embed/WEGJ6_bLr74" frameBorder="0">
+            <iframe title='page-video' width='100%' height="427.5px" src="https://www.youtube.com/embed/WEGJ6_bLr74" frameBorder="0">
             </iframe>
           </div>
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }}></div>
           <div className='page__text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
           <div className='page__comment'>
-            <img className='page__comment-photo' />
+            <img className='page__comment-photo' alt='author' />
             <div className='page__comment-container'>
               <div className='page__comment-author' dangerouslySetInnerHTML={{ __html: page.comment.author }} style={{ color: page.color }}/>
               <div className='page__comment-comment'>Комментарий эксперта</div>

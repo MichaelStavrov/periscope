@@ -23,8 +23,8 @@ function HeaderPage({ openPage }) {
     <div className='header-page'>
       <Menu display={menu} hideMenu={handleMenu} openPage={openPage} />
       <div className='header-page__logos'>
-        <img className='header-page__logos-attention' src='./images/global/attention2.svg'/>
-        <img className='header-page__logos-ok' src='./images/global/ok2.svg'/>
+        <img className='header-page__logos-attention' src='./images/global/attention2.svg' alt='logo'/>
+        <img className='header-page__logos-ok' src='./images/global/ok2.svg' alt='logo'/>
       </div>
       <div
         className='header-page__menu-button'
