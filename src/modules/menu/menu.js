@@ -25,7 +25,7 @@ function Menu({ display, hideMenu, openPage }) {
           pages.map((page, index) => {
             return (
               <Link to={{ pathname: '/page', state: page.id }}>
-                <div className='menu__page' style={{ backgroundImage: `url(./images/pages/${page.image}.png)` }} data-direction='none' onClick={() => handlePage(page.id)} />
+                <div className='menu__page' style={{ backgroundImage: `url(./images/pages/${page.image}-small.png)` }} data-direction='none' onClick={() => handlePage(page.id)} />
               </Link>
             )
           })
