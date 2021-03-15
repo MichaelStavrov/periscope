@@ -22,7 +22,7 @@ function MapMarker ({page}) {
   });
 
   const hoveredIcon = L.icon({
-    iconUrl: `./images/pages/${page.image}.png`,
+    iconUrl: `./images/pages/${page.image}-small.png`,
     shadowUrl: './images/global/marker.png',
     iconSize: [135, 135],
     shadowSize: [155, 200],
