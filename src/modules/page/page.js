@@ -68,14 +68,14 @@ function Page(props) {
         </div>
         <div className='page__data-container'>
           <div className='page__player'>
-            <iframe className='page__player-frame' src="https://www.youtube.com/embed/WEGJ6_bLr74" frameBorder="0">
+            <iframe className='page__player-frame' src={page.video} frameBorder="0" title="achitecture-video">
             </iframe>
           </div>
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }}></div>
           <div className='page__text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
           <div className='page__comment'>
-            <img className='page__comment-photo' src='./images/photo/person.png' />
+            <img className='page__comment-photo' src={`./images/photo/${page.comment.photo}`} alt="author" />
             <div className='page__comment-container'>
               <div className='page__comment-author' dangerouslySetInnerHTML={{ __html: page.comment.author }} style={{ color: page.color }}/>
               <div className='page__comment-comment'>Комментарий эксперта</div>
