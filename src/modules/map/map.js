@@ -1,27 +1,33 @@
 import React, {useState} from 'react';
-import { MapContainer, ImageOverlay, Marker } from 'react-leaflet';
+import { MapContainer, ImageOverlay, Marker, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './map.css';
 import Header from '../header/header';
 
 
-const basicIcon = L.icon({
-  iconUrl: './images/global/marker.png',
-  shadowUrl: './images/global/marker.png',
-  iconSize: [79, 102],
-  shadowSize: [79, 102]
-})
 
 function MapMarker ({page}) {
   const [isHovered, setIsHovered] = useState(false);
+  const map = useMap();
+  
+  const zoom = map.getZoom();
+
+  const basicIconSize = zoom < 10 ? [40, 50] : [79, 102]
+  const basicIcon = L.icon({
+    iconUrl: './images/global/marker.png',
+    shadowUrl: './images/global/marker.png',
+    iconSize: basicIconSize,
+    shadowSize: basicIconSize
+  });
+
   const hoveredIcon = L.icon({
     iconUrl: `./images/pages/${page.image}.png`,
     shadowUrl: './images/global/marker.png',
     iconSize: [135, 135],
     shadowSize: [155, 200],
     shadowAnchor: [77, 77]
-  })
+  });
 
   return <Marker
     position={page.coordinates}
