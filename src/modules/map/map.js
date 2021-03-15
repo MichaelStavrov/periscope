@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { MapContainer, ImageOverlay, Marker, useMap } from 'react-leaflet';
+import { MapContainer, ImageOverlay, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './map.css';
@@ -8,25 +8,43 @@ import Header from '../header/header';
 
 
 function MapMarker ({page}) {
+  const smallIcons = {
+    basicIconSize: [40, 50],
+    hoveredIconSize: [58, 58],
+    hoveredIconShadowSize: [78, 100],
+    hoveredIconShadowAnchor: [39, 39]
+  }
+  const largeIcons = {
+    basicIconSize: [80, 100],
+    hoveredIconSize: [135, 135],
+    hoveredIconShadowSize: [155, 200],
+    hoveredIconShadowAnchor: [77, 77]
+  }
   const [isHovered, setIsHovered] = useState(false);
-  const map = useMap();
-  
-  const zoom = map.getZoom();
+  const [iconSizes, setIconSizes] = useState(smallIcons);
+  const map = useMapEvents({
+    zoom: () => {
+      const zoom = map.getZoom();
+      setIconSizes(zoom > 8.5
+        ? largeIcons
+        : smallIcons
+      )
+    }
+  })
 
-  const basicIconSize = zoom < 10 ? [40, 50] : [79, 102]
   const basicIcon = L.icon({
     iconUrl: './images/global/marker.png',
     shadowUrl: './images/global/marker.png',
-    iconSize: basicIconSize,
-    shadowSize: basicIconSize
+    iconSize: iconSizes.basicIconSize,
+    shadowSize: iconSizes.basicIconSize
   });
 
   const hoveredIcon = L.icon({
     iconUrl: `./images/pages/${page.image}-small.png`,
     shadowUrl: './images/global/marker.png',
-    iconSize: [135, 135],
-    shadowSize: [155, 200],
-    shadowAnchor: [77, 77]
+    iconSize: iconSizes.hoveredIconSize,
+    shadowSize: iconSizes.hoveredIconShadowSize,
+    shadowAnchor: iconSizes.hoveredIconShadowAnchor
   });
 
   return <Marker
