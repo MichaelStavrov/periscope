@@ -7,8 +7,8 @@ import Header from '../header/header';
 
 
 const basicIcon = L.icon({
-  iconUrl: './images/global/marker.svg',
-  shadowUrl: './images/global/marker.svg',
+  iconUrl: './images/global/marker.png',
+  shadowUrl: './images/global/marker.png',
   iconSize: [79, 102],
   shadowSize: [79, 102]
 })
@@ -17,7 +17,7 @@ function MapMarker ({page}) {
   const [isHovered, setIsHovered] = useState(false);
   const hoveredIcon = L.icon({
     iconUrl: `./images/pages/${page.image}.png`,
-    shadowUrl: './images/global/marker.svg',
+    shadowUrl: './images/global/marker.png',
     iconSize: [135, 135],
     shadowSize: [155, 200],
     shadowAnchor: [77, 77]
