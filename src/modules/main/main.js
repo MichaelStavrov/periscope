@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './main.css';
+import './main-mobile.css';
 import Header from '../header/header';
 
 function Main() {

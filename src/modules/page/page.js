@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './page.css';
+import './page-mobile.css';
 import HeaderPage from '../header-page/header-page';
 import Button from '../button/button';
 import Slider from '../slider/slider';
@@ -67,14 +68,22 @@ function Page(props) {
         </div>
         <div className='page__data-container'>
           <div className='page__player'>
+<<<<<<< HEAD
             <iframe title='page-video' width='100%' height="427.5px" src="https://www.youtube.com/embed/WEGJ6_bLr74" frameBorder="0">
+=======
+            <iframe className='page__player-frame' src="https://www.youtube.com/embed/WEGJ6_bLr74" frameBorder="0">
+>>>>>>> c8f849dd6ec6c6ca01f8ab64966b200c8c84e6c8
             </iframe>
           </div>
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }}></div>
           <div className='page__text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
           <div className='page__comment'>
+<<<<<<< HEAD
             <img className='page__comment-photo' alt='author' />
+=======
+            <img className='page__comment-photo' src='./images/photo/person.png' />
+>>>>>>> c8f849dd6ec6c6ca01f8ab64966b200c8c84e6c8
             <div className='page__comment-container'>
               <div className='page__comment-author' dangerouslySetInnerHTML={{ __html: page.comment.author }} style={{ color: page.color }}/>
               <div className='page__comment-comment'>Комментарий эксперта</div>

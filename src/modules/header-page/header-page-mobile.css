@@ -1,0 +1,15 @@
+@media (max-width: 600px) {
+
+  .header-page__logos  {
+    width: 150px;
+    margin-left: 20px;
+  }
+
+  .header-page__logos-attention {
+    width: 60px;
+  }
+
+  .header-page__logos-ok {
+    width: 60px;
+  }
+}

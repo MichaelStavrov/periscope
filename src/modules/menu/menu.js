@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './menu.css';
+import './menu-mobile.css';
 import Button from '../button/button';
 
 function Menu({ display, hideMenu, openPage }) {
