@@ -6,14 +6,15 @@ import HeaderPage from '../header-page/header-page';
 import Button from '../button/button';
 import Slider from '../slider/slider';
 
-function Page(props) {
+function Page({pk}) {
 
   let { pages } = require('../../data.json');
+  const currentPageId = Number.parseInt(pk || 0, 10);
 
   let [ pageId, setPageId ] = useState({
-    currentPageId: props.location.state,
-    prevPageId: props.location.state === 1 ? pages.length : props.location.state - 1,
-    nextPageId: props.location.state === pages.length ? 1 : props.location.state + 1
+    currentPageId: currentPageId,
+    prevPageId: currentPageId === 1 ? pages.length : currentPageId - 1,
+    nextPageId: currentPageId === pages.length ? 1 : currentPageId + 1
   });
 
   let [ page, setPage ] = useState(pages[pageId.currentPageId - 1])
@@ -41,21 +42,13 @@ function Page(props) {
     })
   }
 
-  function openPage(index) {
-    setPageId({
-      currentPageId: index,
-      prevPageId: index === 1 ? pages.length : index - 1,
-      nextPageId: index === pages.length ? 1 : index + 1
-    })
-  }
-
   useEffect(() => {
     setPage(pages[pageId.currentPageId - 1])
   }, [pageId, pages])
 
   return (
     <div className='page'>
-      <HeaderPage openPage={openPage} />
+      <HeaderPage />
       <Link to='/'>
         <div className='page__close' style={{ backgroundColor: page.color }}>
           <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
@@ -84,13 +77,13 @@ function Page(props) {
           </div>
           <Slider slides={page.slider} />
           <div className='page__navigation'>
-            <Link className='page__link' to={{ state: pageId.prevPageId }} data-direction="prev" onClick={switchPage}>
+            <Link className='page__link' to={`/page/${pageId.prevPageId}`} data-direction="prev" onClick={switchPage}>
               <div className='page__navigation-next'>
                 <div className='page__navigation-title' style={{ color: pages[pageId.prevPageId - 1].color}}>{pages[pageId.prevPageId - 1].title}</div>
                 <div className='page__navigation-location'>{pages[pageId.prevPageId - 1].location}</div>
               </div>
             </Link>
-            <Link className='page__link' to={{ state: pageId.nextPageId }} data-direction="next" onClick={switchPage}>
+            <Link className='page__link' to={`/page/${pageId.nextPageId}`} data-direction="next" onClick={switchPage}>
               <div className='page__navigation-prev'>
                 <div className='page__navigation-title' style={{ color: pages[pageId.nextPageId - 1].color}}>{pages[pageId.nextPageId - 1].title}</div>
                 <div className='page__navigation-location'>{pages[pageId.nextPageId - 1].location}</div>

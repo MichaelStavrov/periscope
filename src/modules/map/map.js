@@ -54,7 +54,7 @@ const MapMarker = withRouter(({history, page}) => {
       mouseover: () => setIsHovered(true),
       mouseout: () => setIsHovered(false),
       click: () => {
-        history.push("/page", page.id)
+        history.push(`/page/${page.id}`)
       }
     }}
     icon={

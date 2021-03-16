@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import './index.css';
 import Main from './modules/main/main';
 import Map from './modules/map/map';
@@ -12,7 +12,10 @@ function App() {
         <Switch>
           <Route component={Main} exact path="/" />
           <Route component={Map} path="/map" />
-          <Route component={Page} path="/page" />
+          <Route
+              path="/page/:pk"
+              render={({ match }) => <Page pk={match.params.pk} />}
+          />
         </Switch>
       </Router>
     </div>
