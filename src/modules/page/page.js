@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './page.css';
 import './page-mobile.css';
 import HeaderPage from '../header-page/header-page';
-import Button from '../button/button';
 import Slider from '../slider/slider';
 
 function Page(props) {
@@ -31,7 +30,6 @@ function Page(props) {
       <div className='page__container'>
         <div className='page__image-container'>
           <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
-          <Button text='Помочь фонду' color={page && page.color} link='#' />
         </div>
         <div className='page__data-container'>
           <div className='page__player'>
