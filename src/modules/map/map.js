@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { MapContainer, ImageOverlay, Marker, useMapEvents } from 'react-leaflet';
+import { Link } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './map.css';
@@ -77,7 +78,13 @@ function Map() {
           url='./images/global/map.jpg'
           zIndex={100000}
         />
-        { pages.map((page, index) => <MapMarker page={page} key={page.id} />)
+        { pages.map((page, index) => {
+          return (
+            <Link to={{ pathname: '/page', state: page.id }}>
+              <MapMarker page={page} key={page.id} />
+            </Link>
+          )
+        })
         }
       </MapContainer>
       </div>
