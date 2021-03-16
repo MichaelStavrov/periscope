@@ -5,7 +5,7 @@ import Menu from '../menu/menu';
 
 function HeaderPage() {
   let [ menuLine, setMenuLine ] = useState('retracted');
-  let [ menu, setMenu ] = useState('hidden');
+  let [ isMenuVisible, setIsMenuVisible ] = useState(false);
   function handleLine() {
     if (menuLine === 'retracted') {
       setMenuLine('expanded');
@@ -14,15 +14,11 @@ function HeaderPage() {
     }
   }
   function handleMenu() {
-    if (menu === 'hidden') {
-      setMenu('visible');
-    } else {
-      setMenu('hidden');
-    }
+    setIsMenuVisible(!isMenuVisible)
   }
   return (
     <div className='header-page'>
-      <Menu display={menu} hideMenu={handleMenu} />
+      <Menu isMenuVisible={isMenuVisible} hideMenu={handleMenu} />
       <div className='header-page__logos'>
         <img className='header-page__logos-attention' src='./images/global/attention2.svg' alt='logo'/>
         <img className='header-page__logos-ok' src='./images/global/ok2.svg' alt='logo'/>

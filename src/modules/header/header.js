@@ -5,7 +5,7 @@ import Menu from '../menu/menu';
 
 function Header() {
   let [ menuLine, setMenuLine ] = useState('retracted');
-  let [ menu, setMenu ] = useState('hidden');
+  let [ isMenuVisible, setIsMenuVisible ] = useState(false);
   function handleLine() {
     if (menuLine === 'retracted') {
       setMenuLine('expanded');
@@ -14,15 +14,11 @@ function Header() {
     }
   }
   function handleMenu() {
-    if (menu === 'hidden') {
-      setMenu('visible');
-    } else {
-      setMenu('hidden');
-    }
+    setIsMenuVisible(!isMenuVisible)
   }
   return (
     <div className='header'>
-      <Menu display={menu} hideMenu={handleMenu} />
+      <Menu isMenuVisible={isMenuVisible} hideMenu={handleMenu} />
       <div
         className='header__menu-button'
         onMouseEnter={() => handleLine()}

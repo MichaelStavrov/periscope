@@ -4,11 +4,11 @@ import './menu.css';
 import './menu-mobile.css';
 import Button from '../button/button';
 
-function Menu({ display, hideMenu }) {
+function Menu({ isMenuVisible, hideMenu }) {
   const { pages, global } = require('../../data.json');
 
   return (
-    <div className='menu' style={ display === 'visible' ? { display: 'flex' } : { display: 'none' } }>
+    <div className='menu' style={{ display: isMenuVisible ? 'flex' : 'none' }}>
       <img className='menu__close' src='./images/global/close.svg' onClick={hideMenu} alt='menu' />
       <div className='menu__text'>{global.text}</div>
       <div className='menu__buttons'>
@@ -18,8 +18,8 @@ function Menu({ display, hideMenu }) {
       <div className='menu__pages'>
         {
           pages.map((page, index) => 
-              <Link to={`/page/${page.id}`}>
-                <div className='menu__page' style={{ backgroundImage: `url(./images/pages/${page.image}-small.png)` }} data-direction='none' onClick={hideMenu} />
+              <Link key={page.id} to={`/page/${page.id}`}>
+                <div className='menu__page' style={{ backgroundImage: `url(./images/pages/${page.image}-small.png)` }} onClick={hideMenu} />
               </Link>
           )
         }
