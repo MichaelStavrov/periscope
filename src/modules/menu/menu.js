@@ -13,7 +13,7 @@ function Menu({ isMenuVisible, hideMenu }) {
       <div className='menu__text'>{global.text}</div>
       <div className='menu__buttons'>
         <Button text='Помочь фонду' color='#7D8083' link='https://fondvnimanie.ru/donate' />
-        <Button text='Страница фонда' color='#EE8208' link='#' />
+        <Button text='Страница фонда' color='#EE8208' link='https://ok.ru/vnimanie.f' />
       </div>
       <div className='menu__pages'>
         {

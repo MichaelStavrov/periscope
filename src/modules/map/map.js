@@ -65,11 +65,12 @@ const MapMarker = withRouter(({history, page}) => {
 
 function Map() {
   const { pages } = require('../../data.json');
+  const initialZoom = window.innerWidth < 1441 ? (window.innerWidth < 640 ? 6.5 : 7) : 7.5;
   return (
     <div className='map'>
       <Header />
       <div className='map__container'>
-      <MapContainer center={[0.4, 0.4]} zoom={7.5} minZoom={7} maxZoom={9} maxBounds={[
+      <MapContainer center={[0.4, 0.4]} zoom={initialZoom} minZoom={6.5} maxZoom={9} maxBounds={[
         [0, 0],
         [8, 12.8],
       ]} scrollWheelZoom={true} zoomSnap={0.5} zoomDelta={0.5} wheelPxPerZoomLevel={200}>
