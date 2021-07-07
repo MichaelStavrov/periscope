@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { withRouter } from 'react-router-dom';
-import { MapContainer, ImageOverlay, Marker, useMapEvents } from 'react-leaflet';
+import { MapContainer, ImageOverlay, Marker, useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './map.css';
@@ -63,13 +63,22 @@ const MapMarker = withRouter(({history, page}) => {
   />
 })
 
+function DraggingOnlyWithinBounds() {
+  const map = useMap();
+  const maximumBounds = [[0, 0], [8, 12.8]];
+  map.on('drag', function() {
+      map.panInsideBounds(maximumBounds, { animate: false });
+  });
+  return null;
+}
+
 function Map() {
   const { pages } = require('../../data.json');
   return (
     <div className='map'>
       <Header />
       <div className='map__container'>
-      <MapContainer center={[0.4, 0.4]} zoom={7} minZoom={7} maxZoom={9} maxBounds={[
+      <MapContainer center={[4.5, 2.7]} zoom={7.5} minZoom={7.5} maxZoom={9} maxBounds={[
         [0, 0],
         [8, 12.8],
       ]} scrollWheelZoom={true} zoomSnap={0.5} zoomDelta={0.5} wheelPxPerZoomLevel={200}>
@@ -83,6 +92,7 @@ function Map() {
         />
         { pages.map((page, index) => <MapMarker page={page} key={page.id} />)
         }
+        <DraggingOnlyWithinBounds />
       </MapContainer>
       </div>
     </div>
