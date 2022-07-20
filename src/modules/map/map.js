@@ -7,7 +7,6 @@ import './map.css';
 import Header from '../header/header';
 
 
-
 const MapMarker = withRouter(({history, page}) => {
   const smallIcons = {
     basicIconSize: [40, 50],
@@ -45,14 +44,24 @@ const MapMarker = withRouter(({history, page}) => {
     shadowUrl: './images/global/marker.png',
     iconSize: iconSizes.hoveredIconSize,
     shadowSize: iconSizes.hoveredIconShadowSize,
-    shadowAnchor: iconSizes.hoveredIconShadowAnchor
+    shadowAnchor: [40, 77],
+    iconAnchor: [30, 67],
+    className: 'leaflet_hovered_icon'
   });
+  //
+  // shadowAnchor: [40, 77],
+  // iconAnchor: [30, 67]
 
   return <Marker
     position={page.coordinates}
     eventHandlers={{
-      mouseover: () => setIsHovered(true),
-      mouseout: () => setIsHovered(false),
+      mouseover: (e) => {
+        setIsHovered(true)
+        // console.log(e);
+      },
+      mouseout: () => {
+        setIsHovered(false)
+      },
       click: () => {
         history.push(`/page/${page.id}`)
       }

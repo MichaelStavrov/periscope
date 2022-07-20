@@ -9,3 +9,7 @@
   width: 100%;
   height: 80vh;
 }
+
+.leaflet_hovered_icon {
+  padding-bottom: 38px;
+}

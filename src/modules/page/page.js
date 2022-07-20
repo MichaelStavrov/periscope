@@ -22,7 +22,7 @@ function Page(props) {
   return (
     <div className='page'>
       <HeaderPage />
-      <Link to='/'>
+      <Link to='/map'>
         <div className='page__close' style={{ backgroundColor: page.color }}>
           <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
         </div>
