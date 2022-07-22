@@ -29,6 +29,7 @@ function HeaderPage({ pageId, pages, page }) {
           <img className="header-page__link-image header-page__prev-page" src="./images/global/leftarrow.svg" />
           <p className="header-page__link-text">{pages[pageId.prevPageId - 1].title}</p>
         </Link>
+        <div className="header-page__navigation-line" />
         <Link className='header-page__link' to={`/page/${pageId.nextPageId}`}>
           <p className="header-page__link-text">{pages[pageId.nextPageId - 1].title}</p>
           <img className="header-page__link-image header-page__next-page" src="./images/global/rightarrow.svg" />

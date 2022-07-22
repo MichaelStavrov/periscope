@@ -40,8 +40,16 @@
   position: absolute;
   top: 5px;
   right: 100px;
-  width: 400px;
+  width: 464px;
   height: 40px;
+}
+
+.header-page__navigation-line {
+  height: 32px;
+  width: 3px;
+  background-color: white;
+  margin: 0 10px;
+  border-radius: 3px;
 }
 
 .header-page__link {
@@ -49,7 +57,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  max-width: 250px;
+  width: 220px;
   height: 100%;
 }
 
@@ -59,6 +67,7 @@
 }
 
 .header-page__link-text {
+  width: 190px;
   font-size: 14px;
   line-height: 16px;
   text-align: center;

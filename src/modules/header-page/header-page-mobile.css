@@ -17,6 +17,10 @@
   .header-page__link-text {
     display: none;
   }
+
+  .header-page__navigation-line {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
