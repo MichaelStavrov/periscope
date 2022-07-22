@@ -21,7 +21,7 @@ function Page(props) {
 
   return (
     <div className='page'>
-      <HeaderPage />
+      <HeaderPage pageId={pageId} pages={pages} page={page} />
       <Link to='/map'>
         <div className='page__close' style={{ backgroundColor: page.color }}>
           <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
@@ -50,16 +50,20 @@ function Page(props) {
           <Slider slides={page.slider} />
           <div className='page__navigation'>
             <Link className='page__link' to={`/page/${pageId.prevPageId}`}>
-              <div className='page__navigation-next'>
-                <div className='page__navigation-title' style={{ color: pages[pageId.prevPageId - 1].color}}>{pages[pageId.prevPageId - 1].title}</div>
-                <div className='page__navigation-location'>{pages[pageId.prevPageId - 1].location}</div>
-              </div>
+
+                <div className='page__navigation-next' onClick={(() => {window.scrollTo(0, 0)})}>
+                  <div className='page__navigation-title' style={{ color: pages[pageId.prevPageId - 1].color}}>{pages[pageId.prevPageId - 1].title}</div>
+                  <div className='page__navigation-location'>{pages[pageId.prevPageId - 1].location}</div>
+                </div>
+
             </Link>
             <Link className='page__link' to={`/page/${pageId.nextPageId}`}>
-              <div className='page__navigation-prev'>
-                <div className='page__navigation-title' style={{ color: pages[pageId.nextPageId - 1].color}}>{pages[pageId.nextPageId - 1].title}</div>
-                <div className='page__navigation-location'>{pages[pageId.nextPageId - 1].location}</div>
-              </div>
+
+                <div className='page__navigation-prev' onClick={(() => {window.scrollTo(0, 0)})}>
+                  <div className='page__navigation-title' style={{ color: pages[pageId.nextPageId - 1].color}}>{pages[pageId.nextPageId - 1].title}</div>
+                  <div className='page__navigation-location'>{pages[pageId.nextPageId - 1].location}</div>
+                </div>
+
             </Link>
           </div>
         </div>

@@ -48,9 +48,6 @@ const MapMarker = withRouter(({history, page}) => {
     iconAnchor: [30, 67],
     className: 'leaflet_hovered_icon'
   });
-  //
-  // shadowAnchor: [40, 77],
-  // iconAnchor: [30, 67]
 
   return <Marker
     position={page.coordinates}
@@ -71,6 +68,10 @@ const MapMarker = withRouter(({history, page}) => {
     }
   />
 })
+
+// const MyMap = () => {
+//
+// }
 
 function DraggingOnlyWithinBounds() {
   const map = useMap();

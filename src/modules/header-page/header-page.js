@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './header-page.css';
 import './header-page-mobile.css';
 import Menu from '../menu/menu';
 
-function HeaderPage() {
+function HeaderPage({ pageId, pages, page }) {
   let [ menuLine, setMenuLine ] = useState('retracted');
   let [ isMenuVisible, setIsMenuVisible ] = useState(false);
   function handleLine() {
@@ -22,6 +23,16 @@ function HeaderPage() {
       <div className='header-page__logos'>
         <img className='header-page__logos-attention' src='./images/global/attention2.svg' alt='logo'/>
         <img className='header-page__logos-ok' src='./images/global/ok2.svg' alt='logo'/>
+      </div>
+      <div className="header-page__navigation">
+        <Link className='header-page__link' to={`/page/${pageId.prevPageId}`}>
+          <img className="header-page__link-image header-page__prev-page" src="./images/global/leftarrow.svg" />
+          <p className="header-page__link-text">{pages[pageId.prevPageId - 1].title}</p>
+        </Link>
+        <Link className='header-page__link' to={`/page/${pageId.nextPageId}`}>
+          <p className="header-page__link-text">{pages[pageId.nextPageId - 1].title}</p>
+          <img className="header-page__link-image header-page__next-page" src="./images/global/rightarrow.svg" />
+        </Link>
       </div>
       <div
         className='header-page__menu-button'

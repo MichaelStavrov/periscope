@@ -1,3 +1,24 @@
+@media (max-width: 830px) {
+
+  .header-page__navigation {
+    width: 60px;
+    right: 50px;
+  }
+
+  .header-page__link  {
+    width: 24px;
+  }
+
+  .header-page__link-image {
+    width: 24px;
+    margin: 0;
+  }
+
+  .header-page__link-text {
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
 
   .header-page__logos  {

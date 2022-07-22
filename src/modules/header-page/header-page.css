@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   width: 100%;
   height: 50px;
   background-color: #EE8108;
@@ -28,6 +29,39 @@
 .header-page__menu-button-line:nth-child(2) {
   width: 50%;
   transition: width 0.3s;
+}
+
+.header-page__navigation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 5px;
+  right: 100px;
+  width: 400px;
+  height: 40px;
+}
+
+.header-page__link {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  max-width: 250px;
+  height: 100%;
+}
+
+.header-page__link-image {
+  width: 30px;
+  margin: 0 8px;
+}
+
+.header-page__link-text {
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
 }
 
 .header-page__logos {

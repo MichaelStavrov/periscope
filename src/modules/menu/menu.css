@@ -12,7 +12,7 @@
 
 .menu__close {
   position: absolute;
-  top: 25px;
+  top: 13px;
   right: 25px;
   width: 21px;
   cursor: pointer;
@@ -43,6 +43,11 @@
   width: 100%;
   max-width: 1100px;
   height: 120px;
+}
+
+.menu__pages > a {
+  height: 140px;
+  width: 140px;
 }
 
 .menu__page {
