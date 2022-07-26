@@ -12,13 +12,19 @@ const MapMarker = withRouter(({history, page}) => {
     basicIconSize: [40, 50],
     hoveredIconSize: [58, 58],
     hoveredIconShadowSize: [78, 100],
-    hoveredIconShadowAnchor: [39, 39]
+    hoveredIconShadowAnchor: [39, 39],
+    shadowAnchor: [40, 77],
+    iconAnchor: [30, 67],
+    className: 'leaflet-hovered-icon_small'
   }
   const largeIcons = {
     basicIconSize: [80, 100],
     hoveredIconSize: [135, 135],
     hoveredIconShadowSize: [155, 200],
-    hoveredIconShadowAnchor: [77, 77]
+    hoveredIconShadowAnchor: [77, 77],
+    shadowAnchor: [80, 147],
+    iconAnchor: [70, 137],
+    className: 'leaflet-hovered-icon_large'
   }
   const [isHovered, setIsHovered] = useState(false);
   const [iconSizes, setIconSizes] = useState(smallIcons);
@@ -44,9 +50,9 @@ const MapMarker = withRouter(({history, page}) => {
     shadowUrl: './images/global/marker.png',
     iconSize: iconSizes.hoveredIconSize,
     shadowSize: iconSizes.hoveredIconShadowSize,
-    shadowAnchor: [40, 77],
-    iconAnchor: [30, 67],
-    className: 'leaflet_hovered_icon'
+    shadowAnchor: iconSizes.shadowAnchor,
+    iconAnchor: iconSizes.iconAnchor,
+    className: iconSizes.className
   });
 
   return <Marker
@@ -54,7 +60,6 @@ const MapMarker = withRouter(({history, page}) => {
     eventHandlers={{
       mouseover: (e) => {
         setIsHovered(true)
-        // console.log(e);
       },
       mouseout: () => {
         setIsHovered(false)
@@ -68,10 +73,6 @@ const MapMarker = withRouter(({history, page}) => {
     }
   />
 })
-
-// const MyMap = () => {
-//
-// }
 
 function DraggingOnlyWithinBounds() {
   const map = useMap();

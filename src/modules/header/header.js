@@ -14,7 +14,7 @@ function Header() {
     }
   }
   function handleMenu() {
-    setIsMenuVisible(!isMenuVisible)
+    setIsMenuVisible(!isMenuVisible);
   }
   return (
     <div className='header'>

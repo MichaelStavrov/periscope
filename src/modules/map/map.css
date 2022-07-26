@@ -11,6 +11,10 @@
   height: 80vh;
 }
 
-.leaflet_hovered_icon {
+.leaflet-hovered-icon_small {
   padding-bottom: 38px;
+}
+
+.leaflet-hovered-icon_large {
+  padding-bottom: 52px;
 }

@@ -48,6 +48,7 @@
 .menu__pages > a {
   height: 140px;
   width: 140px;
+  border-radius: 50%;
 }
 
 .menu__page {
@@ -56,6 +57,7 @@
   margin: 10px;
   background-position: center;
   background-size: cover;
+  border-radius: 50%;
 }
 
 .menu__page:nth-child(5) {

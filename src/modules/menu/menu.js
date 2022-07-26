@@ -17,9 +17,12 @@ function Menu({ isMenuVisible, hideMenu }) {
       </div>
       <div className='menu__pages'>
         {
-          pages.map((page, index) => 
+          pages.map((page, index) =>
               <Link key={page.id} to={`/page/${page.id}`}>
-                <div className='menu__page' style={{ backgroundImage: `url(./images/pages/${page.image}-small.png)` }} onClick={hideMenu} />
+                <div className='menu__page' style={{ backgroundImage: `url(./images/pages/${page.image}-small.png)` }} onClick={() => {
+                  hideMenu();
+                  window.scrollTo(0, 0);
+                }} />
               </Link>
           )
         }
