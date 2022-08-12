@@ -1,0 +1,68 @@
+.page-comment {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 40px 0;
+  width: 80%;
+}
+
+.page-comment__photo {
+  width: 20%;
+  max-width: 120px;
+  background-color: #C4C4C4;
+  border-radius: 50%;
+}
+
+.page-comment__container {
+  width: 65%;
+  max-width: 420px;
+  padding-left: 9%;
+  background-color: white;
+  clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%, 5% calc(100px - 12%), 0% calc(80px - 10%), 5% calc(60px - 8%))
+}
+
+.page-comment__author {
+  padding: 15px 0 5px;
+  font-size: 16px;
+  line-height: 18px;
+  font-family: "Odnoklassniki";
+}
+
+.page-comment__comment {
+  padding-bottom: 10px;
+  font-size: 11px;
+  line-height: 14px;
+  font-family: "Odnoklassniki";
+  color: #373A89;
+}
+
+.page-comment__text {
+  padding-bottom: 15px;
+  width: 95%;
+  font-size: 11px;
+  line-height: 14px;
+  font-family: "Odnoklassniki";
+  color: #666666;
+}
+
+@media (max-width: 800px) {
+
+  .page__comment {
+    width: 90%;
+  }
+
+  .page__comment-container {
+    width: 70%;
+  }
+
+  .page__comment-author {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .page__comment-text {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

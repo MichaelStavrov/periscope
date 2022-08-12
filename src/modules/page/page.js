@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './page.css';
-import './page-mobile.css';
+import './navigation.css';
+import './comment.css';
 import HeaderPage from '../header-page/header-page';
 import Slider from '../slider/slider';
+import { pages } from '../../data/pages.js';
+
 
 function Page(props) {
 
   const {pk} = props;
-  let { pages } = require('../../data.json');
+  // let { pages } = require('../../data.json');
   const currentPageId = Number.parseInt(pk || 0, 10);
 
   const pageId = {
@@ -39,35 +42,49 @@ function Page(props) {
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }}></div>
           <div className='page__text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
-          <div className='page__comment'>
-            <img className='page__comment-photo' src={`./images/photo/${page.comment.photo}`} alt="author" />
-            <div className='page__comment-container'>
-              <div className='page__comment-author' dangerouslySetInnerHTML={{ __html: page.comment.author }} style={{ color: page.color }}/>
-              <div className='page__comment-comment'>Комментарий эксперта</div>
-              <div className='page__comment-text' dangerouslySetInnerHTML={{ __html: page.comment.text }}/>
-            </div>
-          </div>
+          <Comment page={page} />
           <Slider slides={page.slider} />
-          <div className='page__navigation'>
-            <Link className='page__link' to={`/page/${pageId.prevPageId}`}>
-
-                <div className='page__navigation-next' onClick={(() => {window.scrollTo(0, 0)})}>
-                  <div className='page__navigation-title' style={{ color: pages[pageId.prevPageId - 1].color}}>{pages[pageId.prevPageId - 1].title}</div>
-                  <div className='page__navigation-location'>{pages[pageId.prevPageId - 1].location}</div>
-                </div>
-
-            </Link>
-            <Link className='page__link' to={`/page/${pageId.nextPageId}`}>
-
-                <div className='page__navigation-prev' onClick={(() => {window.scrollTo(0, 0)})}>
-                  <div className='page__navigation-title' style={{ color: pages[pageId.nextPageId - 1].color}}>{pages[pageId.nextPageId - 1].title}</div>
-                  <div className='page__navigation-location'>{pages[pageId.nextPageId - 1].location}</div>
-                </div>
-
-            </Link>
-          </div>
+          <PageNavigation pageId={pageId} pages={pages} />
         </div>
       </div>
+    </div>
+  )
+}
+
+
+function Comment({ page }) {
+  return (
+    <div className='page-comment'>
+      <img className='page-comment__photo' src={`./images/photo/${page.comment.photo}`} alt="author" />
+      <div className='page-comment__container'>
+        <div className='page-comment__author' dangerouslySetInnerHTML={{ __html: page.comment.author }} style={{ color: page.color }}/>
+        <div className='page-comment__comment'>Комментарий эксперта</div>
+        <div className='page-comment__text' dangerouslySetInnerHTML={{ __html: page.comment.text }}/>
+      </div>
+    </div>
+  )
+}
+
+
+function PageNavigation({ pageId, pages }) {
+  return (
+    <div className='page-navigation'>
+      <Link className='page-navigation__link' to={`/page/${pageId.prevPageId}`}>
+
+          <div className='page-navigation__next' onClick={(() => {window.scrollTo(0, 0)})}>
+            <div className='page-navigation__title' style={{ color: pages[pageId.prevPageId - 1].color}}>{pages[pageId.prevPageId - 1].title}</div>
+            <div className='page-navigation__location'>{pages[pageId.prevPageId - 1].location}</div>
+          </div>
+
+      </Link>
+      <Link className='page-navigation__link' to={`/page/${pageId.nextPageId}`}>
+
+          <div className='page-navigation__prev' onClick={(() => {window.scrollTo(0, 0)})}>
+            <div className='page-navigation__title' style={{ color: pages[pageId.nextPageId - 1].color}}>{pages[pageId.nextPageId - 1].title}</div>
+            <div className='page-navigation__location'>{pages[pageId.nextPageId - 1].location}</div>
+          </div>
+
+      </Link>
     </div>
   )
 }
