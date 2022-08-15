@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './slider.css';
 
 function Slider({ slides }) {
   let [ currentImageIndex, setCurrentImageIndex ] = useState(1);
+  let [ containerHeight, setContainerHeight ] = useState('');
 
   function switchSlide(event) {
     const direction = event.currentTarget.dataset.direction;
@@ -25,9 +26,19 @@ function Slider({ slides }) {
     })
   }
 
+  function handleSliderResize(e) {
+    const playerContainer = document.querySelector('.slider__image');
+    const containerHeight = playerContainer.offsetWidth / 1.56;
+    setContainerHeight(containerHeight);
+  }
+
+  window.addEventListener('resize', handleSliderResize);
+
+  useEffect(handleSliderResize);
+
   return (
     <div className='slider'>
-      <img className='slider__image' src={`./images/slider/${slides[currentImageIndex - 1]}`} alt='slide'/>
+      <div className='slider__image' src={`./images/slider/${slides[currentImageIndex - 1]}`} alt='slide' style={{ height: containerHeight, backgroundImage: `url(./images/slider/${slides[currentImageIndex - 1]})` }}/>
       <div className='slider__buttons'>
         <img className='slider__button-left' src='./images/global/left.svg' data-direction="prev" onClick={switchSlide} alt='left-button' />
         <img className='slider__button-right' src='./images/global/right.svg' data-direction="next" onClick={switchSlide} alt='right-button' />

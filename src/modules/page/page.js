@@ -58,7 +58,7 @@ function PageDesktop({ pageId, page, currentPageId }) {
       <div className='page__container'>
         <div className='page__left-container'>
           <Slider slides={page.slider} />
-          <Player />
+          <Player currentPageId={currentPageId} />
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
           <div className='page__text page-text' dangerouslySetInnerHTML={{ __html: page.text }} />
@@ -83,7 +83,7 @@ function PageDesktop({ pageId, page, currentPageId }) {
           <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
           <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
           <Comment page={page} />
-          <Help />
+          <Help currentPageId={currentPageId} />
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@ function PageMobile({ pageId, page, currentPageId }) {
           <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
           <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
         </div>
-        <Player />
+        <Player currentPageId={currentPageId} />
         <div className="page__mobile-content">
           <div className='page__location page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
@@ -135,17 +135,17 @@ function PageMobile({ pageId, page, currentPageId }) {
           </div>
           <PageNavigation pageId={pageId} pages={pages} />
         </div>
-        <Help />
+        <Help currentPageId={currentPageId} />
         <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
       </div>
     </div>
   )
 }
 
-function Help() {
+function Help({ currentPageId }) {
   return (
     <div className="help">
-      <img className="help__image" src="./images/global/help.png" />
+      <img className="help__image" src={`./images/help/${currentPageId}.png`} />
       <div className="help__text-container">
         <h3 className="help__title player__text">Хочу помочь</h3>
         <p className="help__text">Об способах поддержки можно почитать <a  className="help__link" href="#" target="_blank">тут</a></p>
@@ -166,7 +166,7 @@ function Info({ title, text, image, color }) {
   )
 }
 
-function Player() {
+function Player({ currentPageId }) {
 
   let [ containerHeight, setContainerHeight ] = useState('');
   let [ audio, setAudio ] = useState(false);
@@ -197,7 +197,7 @@ function Player() {
     <div
       className="player"
       style={{
-        backgroundImage: 'url(./images/global/player-background.png)',
+        backgroundImage: `url(./images/player/${currentPageId}.png)`,
         height: `${containerHeight}px`
       }}
     >
