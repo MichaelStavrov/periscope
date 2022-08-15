@@ -1,3 +1,16 @@
+.page-title {
+  font-family: "Odnoklassniki";
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.page-text {
+  font-family: "Odnoklassniki";
+  font-size: 14px;
+  line-height: 18px;
+  color: #666666;
+}
+
 .page {
   height: 1600px;
 }
@@ -23,13 +36,15 @@
 .page__container {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-.page__image-container {
+.page__left-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
+  background-color: #F7F7F7;
 }
 
 .page__image {
@@ -38,12 +53,12 @@
   margin-bottom: -20px;
 }
 
-.page__data-container {
+.page__right-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
-  background-color: #F7F7F7;
 }
 
 .page__player {
@@ -79,13 +94,24 @@
   font-family: "Odnoklassniki";
   font-size: 14px;
   line-height: 18px;
+  margin-bottom: 28px;
   color: #666666;
 }
 
 @media (max-width: 800px) {
 
+  .page-title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .page-text {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
   .page__container {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .page__image-container {
@@ -117,6 +143,17 @@
 }
 
 @media (max-width: 600px) {
+
+  .page-title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .page-text {
+    font-size: 8px;
+    line-height: 10px;
+  }
+
   .page__player {
     position: relative;
     width: 100%;

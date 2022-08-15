@@ -1,0 +1,27 @@
+.info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  width: 80%;
+  margin: 14px auto;
+}
+
+.info__text-container {
+  background-color: white;
+  box-sizing: border-box;
+  padding: 5%;
+}
+
+.info__image {
+  position: relative;
+  top: -10px;
+  width: 20%;
+}
+
+.info__title {
+  font-weight: 500;
+  margin: 0;
+}

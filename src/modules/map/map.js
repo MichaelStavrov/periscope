@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './map.css';
 import Header from '../header/header';
+import { pages } from '../../data/pages.js';
 
 
 const MapMarker = withRouter(({history, page}) => {
@@ -84,7 +85,6 @@ function DraggingOnlyWithinBounds() {
 }
 
 function Map() {
-  const { pages } = require('../../data.json');
   return (
     <div className='map'>
       <Header />

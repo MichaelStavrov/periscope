@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import './menu.css';
 import './menu-mobile.css';
 import Button from '../button/button';
+import { pages } from '../../data/pages.js';
 
 function Menu({ isMenuVisible, hideMenu }) {
-  const { pages, global } = require('../../data.json');
+  const { global } = require('../../data.json');
 
   return (
     <div className='menu' style={{ display: isMenuVisible ? 'flex' : 'none' }}>
