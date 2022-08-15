@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './page.css';
 import './navigation.css';
@@ -24,6 +24,28 @@ function Page(props) {
 
   const page = pages[pageId.currentPageId - 1];
 
+  return (
+    <Fragment>
+      {
+        window.innerWidth > 600
+        ?
+        <PageDesktop
+          pageId={pageId}
+          page={page}
+          currentPageId={currentPageId}
+        />
+        :
+        <PageMobile
+          pageId={pageId}
+          page={page}
+          currentPageId={currentPageId}
+        />
+      }
+    </Fragment>
+  )
+}
+
+function PageDesktop({ pageId, page, currentPageId }) {
   return (
     <div className='page'>
       <HeaderPage pageId={pageId} pages={pages} page={page} />
@@ -59,9 +81,62 @@ function Page(props) {
         <div className='page__right-container'>
           <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
           <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
+          <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
           <Comment page={page} />
           <Help />
         </div>
+      </div>
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+function PageMobile({ pageId, page, currentPageId }) {
+  return (
+    <div className='page'>
+      <HeaderPage pageId={pageId} pages={pages} page={page} />
+      <Link to='/map'>
+        <div className='page__close' style={{ backgroundColor: page.color }}>
+          <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
+        </div>
+      </Link>
+
+      <div className='page__container'>
+        <Slider slides={page.slider} />
+        <div className="page__image-container">
+          <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
+          <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
+        </div>
+        <Player />
+        <div className="page__mobile-content">
+          <div className='page__location page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
+          <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
+          <div className='page__text page-text' dangerouslySetInnerHTML={{ __html: page.text }} />
+          <Comment page={page} />
+          <div className='page__info'>
+            <Info
+              image={`${currentPageId}-state.svg`}
+              title={page.info.stateTitle}
+              text={page.info.stateText}
+              color={page.color}
+            />
+            <Info
+              image={`${currentPageId}-help.svg`}
+              title={page.info.helpTitle}
+              text={page.info.helpText}
+              color={page.color}
+            />
+          </div>
+          <PageNavigation pageId={pageId} pages={pages} />
+        </div>
+        <Help />
+        <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
       </div>
     </div>
   )
@@ -94,16 +169,29 @@ function Info({ title, text, image, color }) {
 function Player() {
 
   let [ containerHeight, setContainerHeight ] = useState('');
+  let [ audio, setAudio ] = useState(false);
 
   function handleResize(e) {
-    const playerContainer = document.querySelector('.player');
-    const containerHeight = playerContainer.offsetWidth / 3.5625;
-    setContainerHeight(containerHeight);
+    if (window.innerWidth > 600) {
+      const playerContainer = document.querySelector('.player');
+      const containerHeight = playerContainer.offsetWidth / 3.5625;
+      setContainerHeight(containerHeight);
+    }
   }
 
   window.addEventListener('resize', handleResize);
 
   useEffect(handleResize);
+
+  function togglePlayer() {
+    const player = document.querySelector('.player__audio');
+    if (audio === false) {
+      player.play();
+    } else {
+      player.pause();
+    }
+    setAudio(!audio);
+  }
 
   return (
     <div
@@ -114,9 +202,10 @@ function Player() {
       }}
     >
       <div className="player__container">
-        <img className="player__button" src="./images/global/play.svg" />
+        <img className="player__button" src="./images/global/play.svg" onClick={() => togglePlayer()} />
         <p className="player__text">Слушать здание</p>
       </div>
+      <audio className="player__audio" src="./holiday.mp3"></audio>
     </div>
   )
 }
@@ -162,3 +251,44 @@ function PageNavigation({ pageId, pages }) {
 }
 
 export default Page;
+
+// <div className='page'>
+//   <HeaderPage pageId={pageId} pages={pages} page={page} />
+//   <Link to='/map'>
+//     <div className='page__close' style={{ backgroundColor: page.color }}>
+//       <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
+//     </div>
+//   </Link>
+//
+//   <div className='page__container'>
+//     <div className='page__left-container'>
+//       <Slider slides={page.slider} />
+//       <Player />
+//       <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
+//       <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
+//       <div className='page__text page-text' dangerouslySetInnerHTML={{ __html: page.text }} />
+//       <div className='page__info'>
+//         <Info
+//           image={`${currentPageId}-state.svg`}
+//           title={page.info.stateTitle}
+//           text={page.info.stateText}
+//           color={page.color}
+//         />
+//         <Info
+//           image={`${currentPageId}-help.svg`}
+//           title={page.info.helpTitle}
+//           text={page.info.helpText}
+//           color={page.color}
+//         />
+//       </div>
+//       <PageNavigation pageId={pageId} pages={pages} />
+//     </div>
+//     <div className='page__right-container'>
+//       <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
+//       <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
+//       <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
+//       <Comment page={page} />
+//       <Help />
+//     </div>
+//   </div>
+// </div>

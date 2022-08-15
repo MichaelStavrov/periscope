@@ -61,6 +61,21 @@
 }
 
 @media (max-width: 600px) {
+
+  .page-comment {
+    width: 100%;
+  }
+
+  .page-comment__container {
+    background-color: white;
+    box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.05);
+    width: 76%;
+  }
+
+  .page-comment__photo {
+    width: 16%;
+  }
+
   .page-comment__comment {
     font-size: 9px;
     line-height: 11px;

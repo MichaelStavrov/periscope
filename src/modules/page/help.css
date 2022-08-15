@@ -105,3 +105,22 @@
     font-size: 5px;
   }
 }
+
+@media (max-width: 600px)  {
+  .player__text {
+    font-size: 36px;
+  }
+
+  .help {
+    position: relative;
+  }
+
+  .help__title.player__text {
+    font-size: 44px;
+    line-height: 48px;
+  }
+
+  .help__text {
+    font-size: 12px;
+  }
+}

@@ -27,10 +27,22 @@
 .player__button {
   height: 100%;
   margin-right: 5%;
+  cursor: pointer;
 }
 
 .player__text {
   color: white;
   font-family: "Odnoklassniki";
   font-size: 34px;
+}
+
+@media (max-width: 600px) {
+
+  .player {
+    height: 120px;
+  }
+
+  .player__text {
+    font-size: 34px;
+  }
 }

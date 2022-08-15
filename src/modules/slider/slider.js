@@ -32,6 +32,7 @@ function Slider({ slides }) {
         <img className='slider__button-left' src='./images/global/left.svg' data-direction="prev" onClick={switchSlide} alt='left-button' />
         <img className='slider__button-right' src='./images/global/right.svg' data-direction="next" onClick={switchSlide} alt='right-button' />
       </div>
+      <div className="slider__how-looks-now">Как выглядит сейчас</div>
     </div>
   )
 }

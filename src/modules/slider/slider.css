@@ -32,3 +32,32 @@
   height: 30px;
   cursor: pointer;
 }
+
+.slider__how-looks-now {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  font-family: "Odnoklassniki";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 32px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+
+  .slider__image {
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: -1%;
+  }
+
+  .slider__how-looks-now {
+    font-size: 16px;
+    line-height: 32px;
+  }
+}

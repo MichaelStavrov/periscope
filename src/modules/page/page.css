@@ -61,6 +61,15 @@
   width: 50%;
 }
 
+.page__how-should-look {
+  font-family: "Odnoklassniki";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .page__player {
   width: 100%;
   height: 427.5px;
@@ -144,14 +153,45 @@
 
 @media (max-width: 600px) {
 
+  .page__container {
+    flex-direction: column;
+  }
+
+  .page__how-should-look {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .page__image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .page__image {
+    padding-top: 0;
+  }
+
   .page-title {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 20px;
+    line-height: 28px;
   }
 
   .page-text {
-    font-size: 8px;
-    line-height: 10px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .page__mobile-content {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 5%;
+    background-color: #F7F7F7;
   }
 
   .page__player {
@@ -167,5 +207,9 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .page__close-icon {
+    display: none;
   }
 }
