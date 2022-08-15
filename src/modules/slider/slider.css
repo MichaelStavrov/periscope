@@ -61,3 +61,17 @@
     line-height: 32px;
   }
 }
+
+@media (max-width: 460px) {
+  .slider__how-looks-now {
+    font-size: 14px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 360px) {
+  .slider__how-looks-now {
+    font-size: 12px;
+    line-height: 30px;
+  }
+}

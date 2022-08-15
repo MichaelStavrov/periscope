@@ -213,3 +213,18 @@
     display: none;
   }
 }
+
+@media (max-width: 460px) {
+
+  .page__how-should-look {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .page__how-should-look {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
