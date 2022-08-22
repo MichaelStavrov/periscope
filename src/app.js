@@ -10,8 +10,7 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
-          <Route component={Main} exact path="/" />
-          <Route component={Map} path="/map" />
+          <Route component={Map} exact path="/" />
           <Route
               path="/page/:pk"
               render={({ match }) => <Page pk={match.params.pk} />}
@@ -21,5 +20,7 @@ function App() {
     </div>
   );
 }
+
+// <Route component={Main} exact path="/" />
 
 export default App;

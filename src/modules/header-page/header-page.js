@@ -21,7 +21,9 @@ function HeaderPage({ pageId, pages, page }) {
     <div className='header-page'>
       <Menu isMenuVisible={isMenuVisible} hideMenu={handleMenu} />
       <div className='header-page__logos'>
-        <img className='header-page__logos-attention' src='./images/global/attention2.svg' alt='logo'/>
+        <Link className='header-page__logos-attention-wrapper' to={`/`}>
+          <img className='header-page__logos-attention' src='./images/global/attention2.svg' alt='logo'/>
+        </Link>
         <img className='header-page__logos-ok' src='./images/global/ok2.svg' alt='logo'/>
       </div>
       <div className="header-page__navigation">
