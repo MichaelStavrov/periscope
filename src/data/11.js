@@ -29,6 +29,7 @@ const page11 = {
     "tower/8.jpg",
     "tower/9.jpg"],
   color: "#D56071",
+  textColor: "#D56071",
   coordinates: [3.68, 3.59]
 }
 

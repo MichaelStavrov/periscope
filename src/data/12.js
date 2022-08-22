@@ -25,6 +25,7 @@ const page12 = {
     "mosaic/4.jpg",
     "mosaic/5.jpg"],
   color: "#83CAC8",
+  textColor: "#E2A717",
   coordinates: [3.92, 2.45]
 }
 

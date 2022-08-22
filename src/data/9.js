@@ -32,6 +32,7 @@ const page9 = {
     "factory/11.jpg",
     "factory/12.jpg"],
   color: "#5EACD9",
+  textColor: "#EC7262",
   coordinates: [2.18, 5.355]
 }
 

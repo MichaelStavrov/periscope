@@ -31,6 +31,7 @@ const page13 = {
     "manor/10.jpg",
     "manor/11.jpg"],
   color: "#F9CD5E",
+  textColor: "#F9CD5E",
   coordinates: [4.94, 1.72]
 }
 

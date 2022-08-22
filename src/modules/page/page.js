@@ -8,10 +8,13 @@ import './info.css';
 import './help.css';
 import HeaderPage from '../header-page/header-page';
 import Slider from '../slider/slider';
+import Video from '../video/video';
 import { pages } from '../../data/pages.js';
 
 
 function Page(props) {
+
+  let [ video, toggleVideo ] = useState(false);
 
   const {pk} = props;
   const currentPageId = Number.parseInt(pk || 0, 10);
@@ -24,6 +27,10 @@ function Page(props) {
 
   const page = pages[pageId.currentPageId - 1];
 
+  function togglePlayer(par) {
+    toggleVideo(par);
+  }
+
   return (
     <Fragment>
       {
@@ -33,19 +40,26 @@ function Page(props) {
           pageId={pageId}
           page={page}
           currentPageId={currentPageId}
+          togglePlayer={togglePlayer}
         />
         :
         <PageMobile
           pageId={pageId}
           page={page}
           currentPageId={currentPageId}
+          togglePlayer={togglePlayer}
         />
       }
+      <Video
+        togglePlayer={togglePlayer}
+        video={video}
+        page={page}
+      />
     </Fragment>
   )
 }
 
-function PageDesktop({ pageId, page, currentPageId }) {
+function PageDesktop({ pageId, page, currentPageId, togglePlayer }) {
   return (
     <div className='page'>
       <HeaderPage pageId={pageId} pages={pages} page={page} />
@@ -58,7 +72,7 @@ function PageDesktop({ pageId, page, currentPageId }) {
       <div className='page__container'>
         <div className='page__left-container'>
           <Slider slides={page.slider} />
-          <Player currentPageId={currentPageId} />
+          <Player currentPageId={currentPageId} togglePlayer={togglePlayer} />
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
           <div className='page__text page-text' dangerouslySetInnerHTML={{ __html: page.text }} />
@@ -97,7 +111,7 @@ function PageDesktop({ pageId, page, currentPageId }) {
 
 
 
-function PageMobile({ pageId, page, currentPageId }) {
+function PageMobile({ pageId, page, currentPageId, togglePlayer }) {
   return (
     <div className='page'>
       <HeaderPage pageId={pageId} pages={pages} page={page} />
@@ -113,7 +127,7 @@ function PageMobile({ pageId, page, currentPageId }) {
           <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
           <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
         </div>
-        <Player currentPageId={currentPageId} />
+        <Player currentPageId={currentPageId} togglePlayer={togglePlayer} />
         <div className="page__mobile-content">
           <div className='page__location page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
@@ -166,7 +180,7 @@ function Info({ title, text, image, color }) {
   )
 }
 
-function Player({ currentPageId }) {
+function Player({ currentPageId, togglePlayer }) {
 
   let [ containerHeight, setContainerHeight ] = useState('');
   let [ audio, setAudio ] = useState(false);
@@ -183,16 +197,6 @@ function Player({ currentPageId }) {
 
   useEffect(handleResize);
 
-  function togglePlayer() {
-    const player = document.querySelector('.player__audio');
-    if (audio === false) {
-      player.play();
-    } else {
-      player.pause();
-    }
-    setAudio(!audio);
-  }
-
   return (
     <div
       className="player"
@@ -200,9 +204,10 @@ function Player({ currentPageId }) {
         backgroundImage: `url(./images/player/${currentPageId}.png)`,
         height: `${containerHeight}px`
       }}
+      onClick={() => togglePlayer(true)}
     >
       <div className="player__container">
-        <img className="player__button" src="./images/global/play.svg" onClick={() => togglePlayer()} />
+        <img className="player__button" src="./images/global/play.png" />
         <p className="player__text">Слушать здание</p>
       </div>
       <audio className="player__audio" src="./holiday.mp3"></audio>
@@ -251,44 +256,3 @@ function PageNavigation({ pageId, pages }) {
 }
 
 export default Page;
-
-// <div className='page'>
-//   <HeaderPage pageId={pageId} pages={pages} page={page} />
-//   <Link to='/map'>
-//     <div className='page__close' style={{ backgroundColor: page.color }}>
-//       <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
-//     </div>
-//   </Link>
-//
-//   <div className='page__container'>
-//     <div className='page__left-container'>
-//       <Slider slides={page.slider} />
-//       <Player />
-//       <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
-//       <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
-//       <div className='page__text page-text' dangerouslySetInnerHTML={{ __html: page.text }} />
-//       <div className='page__info'>
-//         <Info
-//           image={`${currentPageId}-state.svg`}
-//           title={page.info.stateTitle}
-//           text={page.info.stateText}
-//           color={page.color}
-//         />
-//         <Info
-//           image={`${currentPageId}-help.svg`}
-//           title={page.info.helpTitle}
-//           text={page.info.helpText}
-//           color={page.color}
-//         />
-//       </div>
-//       <PageNavigation pageId={pageId} pages={pages} />
-//     </div>
-//     <div className='page__right-container'>
-//       <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
-//       <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
-//       <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
-//       <Comment page={page} />
-//       <Help />
-//     </div>
-//   </div>
-// </div>

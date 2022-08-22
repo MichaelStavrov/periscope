@@ -37,6 +37,7 @@ const page10 = {
     "vdnh/16.jpg",
     "vdnh/17.jpg"],
   color: "#ED7866",
+  textColor: "#803E55",
   coordinates: [4.74, 1.83]
 }
 

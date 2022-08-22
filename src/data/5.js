@@ -28,7 +28,8 @@ const page5 = {
     "goving/7.jpg",
     "goving/8.jpg"],
   color: "#9B316B",
-  coordinates: [6.11, 2.2]
+  textColor: "#E79573",
+  coordinates: [5.31, 4.6]
 }
 
 export { page5 };

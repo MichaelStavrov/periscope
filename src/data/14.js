@@ -27,6 +27,7 @@ const page14 = {
     "hospital/6.jpg",
     "hospital/7.jpg"],
   color: "#F29446",
+  textColor: "#38707F",
   coordinates: [5.18, 2.27]
 }
 
