@@ -162,7 +162,6 @@ function Help({ currentPageId, link }) {
       <img className="help__image" src={`./images/help/${currentPageId}.png`} />
       <div className="help__text-container">
         <h3 className="help__title player__text">Хочу помочь</h3>
-        <p className="help__text">Об способах поддержки можно почитать <a  className="help__link" href="#" target="_blank">тут</a></p>
       </div>
     </a>
   )
