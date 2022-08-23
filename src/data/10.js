@@ -38,6 +38,7 @@ const page10 = {
     "vdnh/17.jpg"],
   color: "#ED7866",
   textColor: "#803E55",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [4.74, 1.83]
 }
 

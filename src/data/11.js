@@ -30,6 +30,7 @@ const page11 = {
     "tower/9.jpg"],
   color: "#D56071",
   textColor: "#D56071",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [3.68, 3.59]
 }
 

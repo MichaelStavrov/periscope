@@ -12,7 +12,7 @@ const page1 = {
 
   },
   image: "aseman",
-  video: "//ok.ru/videoembed/2234217138747",
+  video: "//ok.ru/videoembed/3806373284411",
   comment: {
     author: "Ника Артемьева",
     photo: "nika.jpg",
@@ -29,6 +29,7 @@ const page1 = {
     "goving/8.jpg"],
   color: "#9B316B",
   textColor: "#AEAC23",
+  helpLink: "https://fondvnimanie.ru/project/744/krovlya-aseman-talo",
   coordinates: [5.9, 2.1]
 }
 

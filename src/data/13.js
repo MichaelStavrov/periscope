@@ -32,6 +32,7 @@ const page13 = {
     "manor/11.jpg"],
   color: "#F9CD5E",
   textColor: "#F9CD5E",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [4.94, 1.72]
 }
 

@@ -29,6 +29,7 @@ const page8 = {
     "goving/8.jpg"],
   color: "#9B316B",
   textColor: "#AFA031",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [6.11, 2.2]
 }
 

@@ -12,7 +12,7 @@ const page6 = {
 
   },
   image: "church",
-  video: "//ok.ru/videoembed/2234217138747",
+  video: "//ok.ru/videoembed/3806373612091",
   comment: {
     author: "Анна Воронцова",
     photo: "anna.jpg",
@@ -29,6 +29,7 @@ const page6 = {
     "goving/8.jpg"],
   color: "#9B316B",
   textColor: "#FFB000",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [5.5, 2.6]
 }
 

@@ -97,7 +97,7 @@ function PageDesktop({ pageId, page, currentPageId, togglePlayer }) {
           <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
           <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
           <Comment page={page} />
-          <Help currentPageId={currentPageId} />
+          <Help currentPageId={currentPageId} link={page.helpLink} />
         </div>
       </div>
     </div>
@@ -149,34 +149,34 @@ function PageMobile({ pageId, page, currentPageId, togglePlayer }) {
           </div>
           <PageNavigation pageId={pageId} pages={pages} />
         </div>
-        <Help currentPageId={currentPageId} />
+        <Help currentPageId={currentPageId} link={page.helpLink} />
         <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
       </div>
     </div>
   )
 }
 
-function Help({ currentPageId }) {
+function Help({ currentPageId, link }) {
   return (
-    <div className="help">
+    <a className="help" href={link} target="_blank">
       <img className="help__image" src={`./images/help/${currentPageId}.png`} />
       <div className="help__text-container">
         <h3 className="help__title player__text">Хочу помочь</h3>
         <p className="help__text">Об способах поддержки можно почитать <a  className="help__link" href="#" target="_blank">тут</a></p>
       </div>
-    </div>
+    </a>
   )
 }
 
 function Info({ title, text, image, color }) {
   return (
-    <div className="info">
+    <Link className="info">
       <img className="info__image" src={`./images/icons/${image}`} />
       <div className="info__text-container">
         <h3 className="info__title page-title" style={{ color: color }} dangerouslySetInnerHTML={{ __html: title }} />
         <p className="info__text page-text" dangerouslySetInnerHTML={{ __html: text }}></p>
       </div>
-    </div>
+    </Link>
   )
 }
 

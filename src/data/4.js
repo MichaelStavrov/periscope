@@ -12,7 +12,7 @@ const page4 = {
 
   },
   image: "lenin",
-  video: "//ok.ru/videoembed/2234217138747",
+  video: "//ok.ru/videoembed/3806373481019",
   comment: {
     author: "Евгения Ключенкова",
     photo: "eugenia.jpg",
@@ -29,6 +29,7 @@ const page4 = {
     "goving/8.jpg"],
   color: "#9B316B",
   textColor: "#9E5163",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [5.35, 2.9]
 }
 

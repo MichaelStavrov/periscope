@@ -12,7 +12,7 @@ const page2 = {
 
   },
   image: "cityhall",
-  video: "//ok.ru/videoembed/2234217138747",
+  video: "//ok.ru/videoembed/3806373677627",
   comment: {
     author: "Ника Артемьева",
     photo: "nika.jpg",
@@ -29,6 +29,7 @@ const page2 = {
     "goving/8.jpg"],
   color: "#9B316B",
   textColor: "#72B0AA",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [6.11, 2.44]
 }
 

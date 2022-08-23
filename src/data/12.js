@@ -26,6 +26,7 @@ const page12 = {
     "mosaic/5.jpg"],
   color: "#83CAC8",
   textColor: "#E2A717",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [3.92, 2.45]
 }
 

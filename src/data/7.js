@@ -12,7 +12,7 @@ const page7 = {
 
   },
   image: "tower2",
-  video: "//ok.ru/videoembed/2234217138747",
+  video: "//ok.ru/videoembed/3806373415483",
   comment: {
     author: "Пётр Шутов",
     photo: "peter.jpg",
@@ -29,6 +29,7 @@ const page7 = {
     "goving/8.jpg"],
   color: "#9B316B",
   textColor: "#D85E51",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [5.3, 3.6]
 }
 

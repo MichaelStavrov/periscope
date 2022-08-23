@@ -28,6 +28,7 @@ const page14 = {
     "hospital/7.jpg"],
   color: "#F29446",
   textColor: "#38707F",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [5.18, 2.27]
 }
 

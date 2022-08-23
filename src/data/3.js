@@ -12,7 +12,7 @@ const page3 = {
 
   },
   image: "club",
-  video: "//ok.ru/videoembed/2234217138747",
+  video: "//ok.ru/videoembed/3806373546555",
   comment: {
     author: "Роман Ушаков",
     photo: "roman.jpg",
@@ -29,6 +29,7 @@ const page3 = {
     "goving/8.jpg"],
   color: "#9B316B",
   textColor: "#FFBA48",
+  helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",
   coordinates: [5.8, 3]
 }
 
