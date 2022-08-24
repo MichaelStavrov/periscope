@@ -10,7 +10,8 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
-          <Route component={Map} exact path="/" />
+          <Route component={Main} exact path="/" />
+          <Route component={Map} exact path="/map" />
           <Route
               path="/page/:pk"
               render={({ match }) => <Page pk={match.params.pk} />}

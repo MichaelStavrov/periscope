@@ -87,7 +87,7 @@ function DraggingOnlyWithinBounds() {
 function Map() {
   return (
     <div className='map'>
-      <Header />
+      <Header isMenuVisible />
       <div className='map__container'>
       <MapContainer center={[4.5, 2.7]} zoom={7.5} minZoom={7.5} maxZoom={9} maxBounds={[
         [0, 0],

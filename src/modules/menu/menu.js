@@ -37,8 +37,8 @@ function Menu({ isMenuVisible, hideMenu }) {
 
 function MapButton({ hideMenu }) {
   return (
-    <Link to="/" onClick={hideMenu}>
-      <Button text='Страница карты' color='#7D8083' link='#' />
+    <Link to="/map">
+      <Button text='Страница карты' color='#7D8083' link='#'/>
     </Link>
   )
 }

@@ -7,19 +7,14 @@ import Menu from '../menu/menu';
 function HeaderPage({ pageId, pages, page }) {
   let [ menuLine, setMenuLine ] = useState('retracted');
   let [ isMenuVisible, setIsMenuVisible ] = useState(false);
-  function handleLine() {
-    if (menuLine === 'retracted') {
-      setMenuLine('expanded');
-    } else {
-      setMenuLine('retracted');
-    }
-  }
-  function handleMenu() {
-    setIsMenuVisible(!isMenuVisible)
-  }
+
+  const toggleLine = () => setMenuLine(menuLine === 'retracted' ? 'expanded' : 'retracted')
+  const hideMenu = () => setIsMenuVisible(false);
+  const openMenu = () => setIsMenuVisible(true);
+
   return (
     <div className='header-page'>
-      <Menu isMenuVisible={isMenuVisible} hideMenu={handleMenu} />
+      <Menu isMenuVisible={isMenuVisible} hideMenu={hideMenu} />
       <div className='header-page__logos'>
         <Link className='header-page__logos-attention-wrapper' to={`/`}>
           <img className='header-page__logos-attention' src='./images/global/attention2.svg' alt='logo'/>
@@ -39,9 +34,9 @@ function HeaderPage({ pageId, pages, page }) {
       </div>
       <div
         className='header-page__menu-button'
-        onMouseEnter={() => handleLine()}
-        onMouseLeave={() => handleLine()}
-        onClick={() => handleMenu()}
+        onMouseEnter={toggleLine}
+        onMouseLeave={toggleLine}
+        onClick={openMenu}
       >
         <div className='header-page__menu-button-line' />
         <div className='header-page__menu-button-line' style={ menuLine === 'expanded' ? { width: '100%' } : { width: '50%' }} />
