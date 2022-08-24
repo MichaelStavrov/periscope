@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './header.css';
 import './header-mobile.css';
 import Menu from '../menu/menu';
 
 function Header() {
   let [ menuLine, setMenuLine ] = useState('retracted');
-  let [ isMenuVisible, setIsMenuVisible ] = useState(false);
+  let [ isMenuVisible, setIsMenuVisible ] = useState(true);
   function handleLine() {
     if (menuLine === 'retracted') {
       setMenuLine('expanded');
@@ -16,6 +16,9 @@ function Header() {
   function handleMenu() {
     setIsMenuVisible(!isMenuVisible);
   }
+  useEffect(() => {
+    setIsMenuVisible(true);
+  }, [])
   return (
     <div className='header'>
       <Menu isMenuVisible={isMenuVisible} hideMenu={handleMenu} />
