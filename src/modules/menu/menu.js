@@ -13,7 +13,7 @@ function Menu({ isMenuVisible, hideMenu }) {
       <img className='menu__close' src='./images/global/close.svg' onClick={hideMenu} alt='menu' />
       <div className='menu__text'>{global.text}</div>
       <div className='menu__buttons'>
-        <Button text='Помочь фонду' color='#7D8083' link='https://fondvnimanie.ru/donate' />
+        <MapButton hideMenu={hideMenu} />
         <Button text='Страница фонда' color='#EE8208' link='https://ok.ru/vnimanie.f' />
       </div>
       <div className='menu__pages'>
@@ -30,6 +30,16 @@ function Menu({ isMenuVisible, hideMenu }) {
       </div>
       <img className='menu__logos' src={'./images/global/menu-logos.svg'} alt='logo' />
     </div>
+  )
+}
+
+// <Button text='Помочь фонду' color='#7D8083' link='https://fondvnimanie.ru/donate' />
+
+function MapButton({ hideMenu }) {
+  return (
+    <Link to="/" onClick={hideMenu}>
+      <Button text='Страница карты' color='#7D8083' link='#' />
+    </Link>
   )
 }
 
