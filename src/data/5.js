@@ -21,7 +21,12 @@ const page5 = {
   slider: [
     "tower1/1.jpg",
     "tower1/2.jpg",
-    "tower1/3.jpg",],
+    "tower1/3.jpg",
+    "tower1/4.jpg",
+    "tower1/5.jpg",
+    "tower1/6.jpg",
+    "tower1/7.jpg",],
+  author: "Иван Стачанский",
   color: "#9B316B",
   textColor: "#E79573",
   helpLink: "https://dobro.mail.ru/projects/sohranim-arhitekturnoe-nasledie-rossii/",

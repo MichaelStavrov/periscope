@@ -71,7 +71,7 @@ function PageDesktop({ pageId, page, currentPageId, togglePlayer }) {
 
       <div className='page__container'>
         <div className='page__left-container'>
-          <Slider slides={page.slider} />
+          <Slider slides={page.slider} page={page} />
           <Player currentPageId={currentPageId} togglePlayer={togglePlayer} />
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
@@ -122,7 +122,7 @@ function PageMobile({ pageId, page, currentPageId, togglePlayer }) {
       </Link>
 
       <div className='page__container'>
-        <Slider slides={page.slider} />
+        <Slider slides={page.slider} page={page} />
         <div className="page__image-container">
           <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
           <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
