@@ -207,7 +207,11 @@ function Player({ currentPageId, togglePlayer }) {
     >
       <div className="player__container">
         <img className="player__button" src="./images/global/play.png" />
-        <p className="player__text">Слушать здание</p>
+        <p className="player__text">
+          {
+            currentPageId <= 7 ? "Слушать здание" : "Смотреть"
+          }
+        </p>
       </div>
       <audio className="player__audio" src="./holiday.mp3"></audio>
     </div>
