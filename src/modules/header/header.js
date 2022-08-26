@@ -3,7 +3,7 @@ import './header.css';
 import './header-mobile.css';
 import Menu from '../menu/menu';
 
-function Header({isMenuOpen}) {
+function Header({isMenuOpen, isXhidden}) {
   let [ menuLine, setMenuLine ] = useState('retracted');
   let [ isMenuVisible, setIsMenuVisible ] = useState(isMenuOpen);
 
@@ -13,7 +13,7 @@ function Header({isMenuOpen}) {
 
   return (
     <div className='header'>
-      <Menu isMenuVisible={isMenuVisible} hideMenu={hideMenu} />
+      <Menu isMenuVisible={isMenuVisible} hideMenu={hideMenu} isXhidden={isXhidden}/>
       <div
         className='header__menu-button'
         onMouseEnter={toggleLine}

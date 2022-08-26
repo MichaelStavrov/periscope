@@ -17,7 +17,7 @@ function Main() {
   return (
     <div className='main'>
       <div className='main__header'>
-        <Header isMenuOpen />
+        <Header isMenuOpen isXhidden />
       </div>
     </div>
   )

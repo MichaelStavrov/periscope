@@ -5,12 +5,12 @@ import './menu-mobile.css';
 import Button from '../button/button';
 import { pages } from '../../data/pages.js';
 
-function Menu({ isMenuVisible, hideMenu }) {
+function Menu({ isMenuVisible, hideMenu, isXhidden }) {
   const { global } = require('../../data.json');
 
   return (
     <div className='menu' style={{ display: isMenuVisible ? 'flex' : 'none' }}>
-      <img className='menu__close' src='./images/global/close.svg' onClick={hideMenu} alt='menu' />
+      {isXhidden ? null : <img className='menu__close' src='./images/global/close.svg' onClick={hideMenu} alt='menu' />}
       <div className='menu__text'>{global.text}</div>
       <div className='menu__buttons'>
         <MapButton hideMenu={hideMenu} />
