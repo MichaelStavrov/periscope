@@ -1,7 +1,9 @@
 @media (max-width: 700px) {
 
   .header__logos {
-    width: 250px;
+    /* width: 100%;  */
+    display: flex;
+    gap: 30px;
   }
 
   .header__logos-attention {
@@ -9,13 +11,13 @@
   }
 
   .header__logos-ok {
-    width: 100px;
+    width: 90px;
   }
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
 
   .header__logos {
     width: 210px;
   }
-}
+} */

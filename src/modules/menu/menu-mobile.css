@@ -1,4 +1,4 @@
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
 
   .menu__text {
     max-width: 95%;
@@ -11,7 +11,6 @@
     justify-content: center;
     align-content: flex-start;
     flex-wrap: wrap;
-    height: 350px;
     margin: 40px 0 60px;
   }
 
@@ -24,9 +23,9 @@
     width: 100px;
     height: 100px;
   }
-}
+} */
 
-@media (max-width: 630px) {
+/* @media (max-width: 630px) {
   .menu__pages > a {
     width: 110px;
     height: 110px;
@@ -36,35 +35,68 @@
     width: 90px;
     height: 90px;
   }
-}
+} */
 
 @media (max-width: 600px) {
 
   .menu__text {
-    margin: 50px 0 20px;
-    font-size: 12px;
-    line-height: 14px;
+    margin: 40px 0 20px;
+    font-size: 16px;
+    line-height: 120%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
   }
 
   .menu__buttons {
     flex-direction: column;
-    width: 95%;
-    height: 120px;
-    justify-content: space-between;
+    /* width: 95%; */
+    /* height: 120px; */
+    /* justify-content: space-between; */
     align-items: center;
+    margin: 10px 0 30px;
+    gap: 20px;
   }
 
   .menu__pages {
-    width: 95%;
-    max-width: 430px;
-    height: 390px;
-    margin: 20px 0 0;
-    align-content: flex-start;
+    max-width: 380px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 0;
+    margin-bottom: 40px;
   }
 
-  .menu__pages > a {
-    width: 90px;
-    height: 90px;
+  .menu__page {
+    width: 70px;
+    height: 70px;
+  }
+
+  .menu__logos {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .menu__attention-icon {
+    width: 80px;
+  }
+
+  .menu__logo-black {
+    width: 60px;
+  }
+
+  .menu__close {
+    top: 10px;
+    right: 10px;
+    width: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .menu__pages {
+    max-width: 340px;
+    align-content: flex-start;
   }
 
   .menu__page {
@@ -73,33 +105,26 @@
   }
 }
 
-@media (max-width: 450px) {
-  .menu__pages {
-    max-width: 340px;
-    height: 350px;
-    align-content: flex-start;
-  }
-
-  .menu__pages > a {
-    width: 80px;
-    height: 80px;
-  }
-
+@media (max-width: 400px) {
   .menu__page {
     width: 60px;
     height: 60px;
   }
+
+  .menu__text {
+    padding: 0 12px;
+  }
 }
+
 
 
 @media (max-width: 360px) {
   .menu__pages {
     max-width: 300px;
-    height: 310px;
     align-content: flex-start;
   }
 
-  .menu__pages > a {
+  /* .menu__pages > a {
     width: 64px;
     height: 64px;
   }
@@ -107,5 +132,5 @@
   .menu__page {
     width: 50px;
     height: 50px;
-  }
+  } */
 }

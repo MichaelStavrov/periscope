@@ -13,15 +13,22 @@
 }
 
 .video__container {
-  position: relative;
-  width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 100%;
+  max-width: 1030px;
+  height: 100%;
+  max-height: 600px;
   /* 1.78 */
 }
 
 .video__player-container {
   position: relative;
   width: 100%;
-  height: 449px;
+  height: 100%;
+  max-height: 600px;
 }
 
 .video__player-frame {
@@ -36,7 +43,7 @@
   position: relative;
   margin-top: -0.6%;
   width: 100%;
-  height: 130px;
+  height: 150px;
 }
 
 .video__button {
@@ -62,12 +69,19 @@
   box-sizing: border-box;
   padding-left: 2.5%;
   padding-right: 2.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
 }
 
 .video__text {
+  margin: 0;
   font-family: "Odnoklassniki";
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 108%;
   text-transform: uppercase;
 }
 
@@ -77,9 +91,9 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -7%;
+  width: 36px;
+  height: 36px;
+  right: -5%;
   top: 0;
   border-radius: 50%;
   cursor: pointer;
@@ -88,6 +102,14 @@
 .video__close-icon {
   width: 50%;
   height: 50%;
+}
+
+@media (max-width: 1150px) {
+  .video__close-button {
+    right: 0;
+    top: -44px;
+  }
+
 }
 
 @media (max-width: 1000px) {
@@ -107,6 +129,11 @@
   .video__text {
     font-size: 16px;
     line-height: 20px;
+  }
+
+  .video__close-button {
+    right: -7%;
+    top: 0;
   }
 }
 
@@ -185,8 +212,8 @@
   }
 
   .video__close-button {
-    right: 25px;
-    top: -35px;
+    right: 4px;
+    top: -26px;
   }
 }
 

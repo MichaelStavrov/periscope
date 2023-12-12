@@ -1,10 +1,23 @@
+html {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  height: 100%;
 }
 
 code {
@@ -19,10 +32,14 @@ a {
 
 @font-face {
     font-family: 'Odnoklassniki';
-    src: url('./fonts/Odnoklassniki-Regular.otf') format('opentype');
+    src: url('./fonts/OK_Sans_Display_Medium.otf') format('opentype');
+    font-weight: 500;
+    font-display: fallback;
 }
 
 @font-face {
     font-family: 'Odnoklassniki-Bold';
-    src: url('./fonts/Odnoklassniki-Bold.otf') format('opentype');
+    src: url('./fonts/OK_Sans_Display_DemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-display: fallback;
 }

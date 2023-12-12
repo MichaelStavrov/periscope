@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header-page.css';
 import './header-page-mobile.css';
@@ -12,6 +12,8 @@ function HeaderPage({ pageId, pages, page }) {
   const hideMenu = () => setIsMenuVisible(false);
   const openMenu = () => setIsMenuVisible(true);
 
+
+
   return (
     <div className='header-page'>
       <Menu isMenuVisible={isMenuVisible} hideMenu={hideMenu} />
@@ -21,7 +23,7 @@ function HeaderPage({ pageId, pages, page }) {
         </Link>
         <img className='header-page__logos-ok' src='./images/global/ok2.svg' alt='logo'/>
       </div>
-      <div className="header-page__navigation">
+      {/* <div className="header-page__navigation">
         <Link className='header-page__link' to={`/page/${pageId.prevPageId}`}>
           <img className="header-page__link-image header-page__prev-page" src="./images/global/leftarrow.svg" />
           <p className="header-page__link-text">{pages[pageId.prevPageId - 1].title}</p>
@@ -31,7 +33,7 @@ function HeaderPage({ pageId, pages, page }) {
           <p className="header-page__link-text">{pages[pageId.nextPageId - 1].title}</p>
           <img className="header-page__link-image header-page__next-page" src="./images/global/rightarrow.svg" />
         </Link>
-      </div>
+      </div> */}
       <div
         className='header-page__menu-button'
         onMouseEnter={toggleLine}

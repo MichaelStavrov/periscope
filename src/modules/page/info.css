@@ -19,6 +19,7 @@
   position: relative;
   top: -10px;
   width: 20%;
+  margin-left: -12px;
 }
 
 .info__title {
@@ -30,6 +31,7 @@
 
   .info {
     width: 100%;
+    gap: 12px;
   }
 
   .info__text-container {

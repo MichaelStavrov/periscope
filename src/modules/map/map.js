@@ -8,7 +8,7 @@ import Header from '../header/header';
 import { pages } from '../../data/pages.js';
 
 
-const MapMarker = withRouter(({history, page}) => {
+const MapMarker = withRouter(({history, page, onVisibleDescription}) => {
   const smallIcons = {
     basicIconSize: [40, 50],
     hoveredIconSize: [58, 58],
@@ -36,6 +36,7 @@ const MapMarker = withRouter(({history, page}) => {
         ? largeIcons
         : smallIcons
       )
+      onVisibleDescription(zoom < 8)
     }
   })
 
@@ -85,9 +86,25 @@ function DraggingOnlyWithinBounds() {
 }
 
 function Map() {
+    const [isVisibleDescription, setIsVisibleDescription] = useState(true);
+
   return (
     <div className='map'>
       <Header isMenuVisible />
+      <div className='map__description-wrapper'>
+        <p
+          style={
+            isVisibleDescription
+              ? {height: 'auto', visibility: 'visible' }
+              : {height: 0, margin: 0, visibility: 'hidden'}
+          }
+          className='map__description'
+        >
+          «Архитектурный перископ» — интерактивная карта исчезающего архитектурного наследия России. Социальная сеть «Одноклассники» и фонд «Внимание» рассказывают о четырнадцати малоизвестных памятниках архитектуры, которым нужна помощь.
+        </p>
+
+        <img style={isVisibleDescription ? {} : {top: -40}} className='map__romb' src='./images/global/romb.svg' alt='arrow' />
+      </div>
       <div className='map__container'>
       <MapContainer center={[4.5, 2.7]} zoom={7.5} minZoom={7.5} maxZoom={9} maxBounds={[
         [0, 0],
@@ -98,10 +115,15 @@ function Map() {
             [0, 0],
             [8, 12.8],
           ]}
-          url='./images/global/map.jpg'
+          url='./images/global/map.png'
           zIndex={100000}
         />
-        { pages.map((page, index) => <MapMarker page={page} key={page.id} />)
+        { pages.map((page) => (
+          <MapMarker
+            page={page}
+            key={page.id}
+            onVisibleDescription={(isVisibleDescription) => setIsVisibleDescription(isVisibleDescription)} />
+          ))
         }
         <DraggingOnlyWithinBounds />
       </MapContainer>

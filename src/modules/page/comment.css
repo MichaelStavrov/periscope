@@ -16,27 +16,70 @@
 
 .page-comment__container {
   width: 70%;
-  max-width: 420px;
+  max-width: 726px;
   padding-left: 9%;
+  padding-bottom: 20px;
+  /* box-sizing: border-box; */
+  /* padding: 0 36px 48px 40px; */
   background-color: #F7F7F7;
   clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%, 5% calc(100px - 12%), 0% calc(80px - 10%), 5% calc(60px - 8%))
 }
 
 .page-comment__author {
-  padding: 15px 0 5px;
+  padding: 15px 0 0;
 }
 
 .page-comment__comment {
-  padding-bottom: 10px;
-  font-size: 14px;
-  line-height: 18px;
+  margin-bottom: 30px;
+  font-size: 19px;
+  line-height: 23px;
+  font-weight: 500;
   font-family: "Odnoklassniki";
-  color: #373A89;
+  color: #F9C03F;;
+  /* color: #373A89; */
 }
 
 .page-comment__text {
   padding-bottom: 15px;
   width: 95%;
+  overflow-y: auto;
+  max-height: 1000px;
+}
+
+@media (max-width: 2000px) {
+  .page-comment__text {
+    max-height: 1200px;
+  }
+}
+
+@media (max-width: 1700px) {
+  .page-comment__text {
+    max-height: 1300px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .page-comment__text {
+    max-height: 1000px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .page-comment__text {
+    max-height: 1100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .page-comment__text {
+    max-height: 1200px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .page-comment__text {
+    max-height: 1400px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -79,5 +122,9 @@
   .page-comment__comment {
     font-size: 9px;
     line-height: 11px;
+  }
+
+  .page-comment__text {
+    max-height: 100%;
   }
 }

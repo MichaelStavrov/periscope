@@ -1,18 +1,18 @@
 .page-title {
   font-family: "Odnoklassniki";
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 34px;
+  line-height: 118%;
 }
 
 .page-text {
   font-family: "Odnoklassniki";
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 26px;
+  line-height: 118%;
   color: #666666;
 }
 
 .page {
-  height: 1600px;
+  /* height: 1600px; */
 }
 
 .page__close {
@@ -50,7 +50,7 @@
 
 .page__image {
   width: 90%;
-  padding-top: 50px;
+  /* padding-top: 50px; */
   margin-bottom: -20px;
 }
 
@@ -60,13 +60,14 @@
   flex-direction: column;
   align-items: center;
   width: 50%;
+  padding-bottom: 200px;
 }
 
 .page__how-should-look {
   font-family: "Odnoklassniki";
-  font-size: 16px;
+  font-size: 26px;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 118%;
   text-transform: uppercase;
   text-align: center;
 }
@@ -85,8 +86,8 @@
   width: 80%;
   margin: 30px 0 0;
   font-family: "Odnoklassniki";
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 34px;
+  line-height: 108%;
   text-transform: uppercase;
 }
 
@@ -94,21 +95,93 @@
   width: 80%;
   margin: 0 0 20px;
   font-family: "Odnoklassniki";
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 34px;
+  line-height: 108%;
   text-transform: uppercase;
 }
 
 .page__text {
   width: 80%;
   font-family: "Odnoklassniki";
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 26px;
+  line-height: 118%;
   margin-bottom: 28px;
   color: #666666;
 }
 
+@media (max-width: 1800px) {
+  .page__location,
+  .page__years {
+    font-size: 24px;
+  }
+
+  .page__text {
+    font-size: 20px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .page-text {
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  .page__how-should-look {
+    font-size: 24px;
+  }
+
+}
+
+@media (max-width: 1400px) {
+  .page__location,
+  .page__years {
+    font-size: 26px;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+
+  .page__text {
+    font-size: 20px;
+  }
+
+  .page-text {
+    font-size: 20px;
+    line-height: 120%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .page__location,
+  .page__years {
+    font-size: 18px;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  .page__text {
+    font-size: 16px;
+  }
+
+  .page-text {
+    font-size: 16px;
+  }
+
+  .page__how-should-look {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 800px) {
+
+  .page__how-should-look {
+    font-size: 20px;
+  }
 
   .page-title {
     font-size: 16px;
@@ -116,8 +189,8 @@
   }
 
   .page-text {
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 14px;
+    line-height: 120%;
   }
 
   .page__container {
@@ -146,9 +219,13 @@
   }
 
   .page__text {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 14px;
+    line-height: 120%;
     width: 90%;
+  }
+
+  .page__image {
+    margin-bottom: 0;
   }
 }
 
@@ -160,7 +237,7 @@
 
   .page__how-should-look {
     position: absolute;
-    top: 0;
+    top: 8px;
     width: 100%;
   }
 
@@ -171,10 +248,12 @@
     position: relative;
     width: 100%;
     margin: 0 auto;
+    padding-bottom: 20px;
   }
 
   .page__image {
     padding-top: 0;
+    margin-top: 20px;
   }
 
   .page-title {
@@ -183,8 +262,8 @@
   }
 
   .page-text {
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 16px;
+    line-height: 120%;
   }
 
   .page__mobile-content {
@@ -228,4 +307,9 @@
     font-size: 12px;
     line-height: 12px;
   }
+}
+
+
+.page__info {
+  margin-bottom: 100px;
 }

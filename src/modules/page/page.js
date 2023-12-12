@@ -10,6 +10,7 @@ import HeaderPage from '../header-page/header-page';
 import Slider from '../slider/slider';
 import Video from '../video/video';
 import { pages } from '../../data/pages.js';
+import PlayButton from '../play-button/PlayButton.js';
 
 
 function Page(props) {
@@ -72,7 +73,7 @@ function PageDesktop({ pageId, page, currentPageId, togglePlayer }) {
       <div className='page__container'>
         <div className='page__left-container'>
           <Slider slides={page.slider} page={page} />
-          <Player currentPageId={currentPageId} togglePlayer={togglePlayer} />
+          <Player currentPageId={currentPageId} togglePlayer={togglePlayer} color={page.textColor} />
           <div className='page__location' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
           <div className='page__text page-text' dangerouslySetInnerHTML={{ __html: page.text }} />
@@ -83,20 +84,23 @@ function PageDesktop({ pageId, page, currentPageId, togglePlayer }) {
               text={page.info.stateText}
               color={page.color}
             />
-            <Info
+            {page.info.helpTitle && (
+              <Info
               image={`${currentPageId}-help.svg`}
               title={page.info.helpTitle}
               text={page.info.helpText}
               color={page.color}
-            />
+              />
+            )}
           </div>
-          <PageNavigation pageId={pageId} pages={pages} />
+                    <PageNavigation pageId={pageId} pages={pages} color={page.color} />
         </div>
         <div className='page__right-container'>
           <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
-          <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
+          {/* <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' /> */}
           <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
           <Comment page={page} />
+          {page.comment2 && <Comment2 page={page} />}
           <Help currentPageId={currentPageId} link={page.helpLink} />
         </div>
       </div>
@@ -127,12 +131,13 @@ function PageMobile({ pageId, page, currentPageId, togglePlayer }) {
           <h2 className="page__how-should-look" style={{ color: page.color }}>Как должно выглядеть</h2>
           <img className='page__image' src={`./images/pages/${page && page.image}.png`} alt='sight' />
         </div>
-        <Player currentPageId={currentPageId} togglePlayer={togglePlayer} />
+        <Player currentPageId={currentPageId} togglePlayer={togglePlayer} color={page.textColor} />
         <div className="page__mobile-content">
           <div className='page__location page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.location }}></div>
           <div className='page__years page-title' style={{ color: page.color }} dangerouslySetInnerHTML={{ __html: page.years }} />
           <div className='page__text page-text' dangerouslySetInnerHTML={{ __html: page.text }} />
           <Comment page={page} />
+          {page.comment2 && <Comment2 page={page} />}
           <div className='page__info'>
             <Info
               image={`${currentPageId}-state.svg`}
@@ -140,14 +145,16 @@ function PageMobile({ pageId, page, currentPageId, togglePlayer }) {
               text={page.info.stateText}
               color={page.color}
             />
-            <Info
-              image={`${currentPageId}-help.svg`}
-              title={page.info.helpTitle}
-              text={page.info.helpText}
-              color={page.color}
-            />
+            {page.info.helpTitle && (
+              <Info
+                image={`${currentPageId}-help.svg`}
+                title={page.info.helpTitle}
+                text={page.info.helpText}
+                color={page.color}
+              />
+            )}
           </div>
-          <PageNavigation pageId={pageId} pages={pages} />
+          <PageNavigation pageId={pageId} pages={pages} color={page.color} />
         </div>
         <Help currentPageId={currentPageId} link={page.helpLink} />
         <img className='page__close-icon' src='./images/global/close-small.svg' alt='button' />
@@ -159,9 +166,9 @@ function PageMobile({ pageId, page, currentPageId, togglePlayer }) {
 function Help({ currentPageId, link }) {
   return (
     <a className="help" href={link} target="_blank">
-      <img className="help__image" src={`./images/help/${currentPageId}.png`} />
+      <img className="help__image" src={`./images/help/${currentPageId}.png`} alt='help' />
       <div className="help__text-container">
-        <h3 className="help__title player__text">Хочу помочь</h3>
+        <h3 className="help__title player__text">Узнать больше о наследии</h3>
       </div>
     </a>
   )
@@ -179,7 +186,7 @@ function Info({ title, text, image, color }) {
   )
 }
 
-function Player({ currentPageId, togglePlayer }) {
+function Player({ currentPageId, togglePlayer, color }) {
 
   let [ containerHeight, setContainerHeight ] = useState('');
   let [ audio, setAudio ] = useState(false);
@@ -187,8 +194,10 @@ function Player({ currentPageId, togglePlayer }) {
   function handleResize(e) {
     if (window.innerWidth > 600) {
       const playerContainer = document.querySelector('.player');
-      const containerHeight = playerContainer.offsetWidth / 3.5625;
-      setContainerHeight(containerHeight);
+      if (playerContainer?.offsetWidth) {
+        const containerHeight = playerContainer.offsetWidth / 3.5625;
+        setContainerHeight(containerHeight);
+      }
     }
   }
 
@@ -206,11 +215,12 @@ function Player({ currentPageId, togglePlayer }) {
       onClick={() => togglePlayer(true)}
     >
       <div className="player__container">
-        <img className="player__button" src="./images/global/play.png" />
+        <PlayButton color={color}/>
         <p className="player__text">
-          {
+          Послушать историю
+          {/* {
             currentPageId <= 7 ? "Слушать здание" : "Смотреть"
-          }
+          } */}
         </p>
       </div>
       <audio className="player__audio" src="./holiday.mp3"></audio>
@@ -225,34 +235,44 @@ function Comment({ page }) {
       <img className='page-comment__photo' src={`./images/photo/${page.comment.photo}`} alt="author" />
       <div className='page-comment__container'>
         <div className='page-comment__author page-title' dangerouslySetInnerHTML={{ __html: page.comment.author }} style={{ color: page.color }}/>
-        <div className='page-comment__comment'>Комментарий эксперта</div>
+        <div className='page-comment__comment' style={{ color: page.textColor }}>Комментарий эксперта</div>
         <div className='page-comment__text page-text' dangerouslySetInnerHTML={{ __html: page.comment.text }}/>
       </div>
     </div>
   )
 }
 
+function Comment2({ page }) {
+  return (
+    <div className='page-comment'>
+      <img className='page-comment__photo' src={`./images/photo/${page.comment2.photo}`} alt="author" />
+      <div className='page-comment__container'>
+        <div className='page-comment__author page-title' dangerouslySetInnerHTML={{ __html: page.comment2.author }} style={{ color: page.color }}/>
+        <div className='page-comment__comment' style={{ color: page.textColor }}>Комментарий эксперта</div>
+        <div className='page-comment__text page-text' dangerouslySetInnerHTML={{ __html: page.comment2.text }}/>
+      </div>
+    </div>
+  )
+}
 
-function PageNavigation({ pageId, pages }) {
+
+function PageNavigation({ pageId, pages, color }) {
   return (
     <div className='page-navigation'>
       <Link className='page-navigation__link' to={`/page/${pageId.prevPageId}`}>
-
           <div className='page-navigation__next' onClick={(() => {window.scrollTo(0, 0)})}>
             <img className='page-navigation__image' src={`./images/pages/${pages[pageId.prevPageId - 1].image}-small.png`} />
-            <div className='page-navigation__title' style={{ color: pages[pageId.prevPageId - 1].color}}>{pages[pageId.prevPageId - 1].title}</div>
+            <div className='page-navigation__title' style={{ color }}>{pages[pageId.prevPageId - 1].title}</div>
             <div className='page-navigation__location'>{pages[pageId.prevPageId - 1].location}</div>
           </div>
 
       </Link>
       <Link className='page-navigation__link' to={`/page/${pageId.nextPageId}`}>
-
           <div className='page-navigation__prev' onClick={(() => {window.scrollTo(0, 0)})}>
             <img className='page-navigation__image' src={`./images/pages/${pages[pageId.nextPageId - 1].image}-small.png`} />
-            <div className='page-navigation__title' style={{ color: pages[pageId.nextPageId - 1].color}}>{pages[pageId.nextPageId - 1].title}</div>
+            <div className='page-navigation__title' style={{ color }}>{pages[pageId.nextPageId - 1].title}</div>
             <div className='page-navigation__location'>{pages[pageId.nextPageId - 1].location}</div>
           </div>
-
       </Link>
     </div>
   )

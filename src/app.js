@@ -6,6 +6,7 @@ import Map from './modules/map/map';
 import Page from './modules/page/page';
 
 function App() {
+  console.log('v1.2.0');
   return (
     <div className="app">
       <Router>

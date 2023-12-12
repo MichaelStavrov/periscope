@@ -1,0 +1,16 @@
+.player__button {
+  height: 100%;
+  /* margin-right: 5%; */
+}
+
+/* @media (max-width: 450px) {
+ .player__button {
+    width: 60px;
+  }
+}
+
+@media (max-width: 350px) {
+  .player__button {
+    width: 50px;
+  }
+} */
